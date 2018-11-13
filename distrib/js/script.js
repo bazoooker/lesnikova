@@ -1,10 +1,65 @@
- $(document).ready(function() {
-  $('select').niceSelect();
-});
+//  $(document).ready(function() {
+//   $('select').niceSelect();
+// });
 
 //новости с ленивой загрузкой
 
 $(document).ready(function(){ 
+
+
+    function showHero() {
+        $('.hero').addClass('hero_active');        
+    }
+
+    // setTimeout(whoosh, 100);
+    setTimeout(showHero, 500);
+
+    // function slideNext() {
+    //     swiper.slideNext();
+    // }
+
+    // function slideUp() {
+    //     $('.swiper-slide-active').addClass('up');
+    //     $('.swiper-slide-active > .hero__info').addClass('up');
+    //     $('.hero').addClass('up');
+    // }
+    // function slideDown() {
+    //     $('.swiper-slide').removeClass('up');
+    //     $('.hero__info').removeClass('up');
+    //     $('.hero').removeClass('up');
+    // }
+
+
+
+
+
+
+
+    $('.slide-next').click(function() {
+
+        let activeSlide = $('.swiper-slide');
+
+        function nextSlide() {
+            swiper.slideNext(0);
+            activeSlide.find('.hero__info').removeClass('up');
+            activeSlide.find('.hero__img').removeClass('up');
+            $('.hero').removeClass('up');
+        }
+
+
+        $('.hero').addClass('up');
+        activeSlide.find('.hero__info').addClass('up');
+        activeSlide.find('.hero__img').addClass('up');
+        setTimeout(nextSlide, 800);
+
+        
+        
+    });
+
+
+
+
+
 
 
 	if($('#newscontainer').length>0){

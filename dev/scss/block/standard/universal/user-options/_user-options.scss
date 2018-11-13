@@ -1,9 +1,50 @@
 .user-options {
 	margin-left: auto;
 	height: 100%;
-	@include flex-row(nowrap,space-between,center);
+	flex-grow: 1;
+	@include flex-row(nowrap,flex-end,center);
+	
+	// все ссылки-иконки
+	& > a {
+		position: relative;
 
-	.icon_tel {flex: 0 0 163px;}
-	.icon_vk {flex: 0 0 18px;}
-	.icon_insta {flex: 0 0 18px;}
+		&:after {
+			@include pseudo;
+			height: 20px;
+			width: 20px;
+			top: 50%;
+		    left: 0%;
+			transform: translateY(-50%);
+		    @include bg-contain;
+		}
+	}
 }
+
+.user-options__tel {
+	flex: 0 0 168px; 
+	margin: 0 29px 0 0; 
+	padding-left: 35px;
+
+	text-transform: uppercase; 
+	font-size: 14px;
+
+	&::after { background-image: url(/img/icons/i-phone.png) }
+}
+.user-options__vk {
+	margin: 0 29px 0 0;
+	
+	height: 18px;
+	width: 18px;
+
+	&:after { background-image: url(/img/icons/i-vk.png) }
+}
+.user-options__insta {
+	width: 18px;
+	height: 18px;
+
+	&:after { background-image: url(/img/icons/i-insta.png) }
+}
+
+// .icon_tel {}
+// .icon_vk {flex: 0 0 18px; margin: 0 29px 0 0;}
+// .icon_insta {flex: 0 0 18px;}

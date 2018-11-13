@@ -60,11 +60,11 @@
                 </a>
 
                 <div class="user-options">
-                    <a class="callme icon icon_tel">
+                    <a class="user-options__tel">
                         заказать звонок
-                    </span>    
-                    <a href="#" class="icon icon_vk"></a>
-                    <a href="#" class="icon icon_insta"></a>
+                    </a>    
+                    <a href="#" class="user-options__vk"></a>
+                    <a href="#" class="user-options__insta"></a>
                 </div>
 
             </div>
@@ -79,19 +79,48 @@
 
             <div class="hero">
                 <div class="container">
-                    <div class="hero__info">
-                    <span class="hero__slide-number">01</span>
-                        <h1>Анастасия<br/>Лесникова</h1>
-                        <p class="text-big">Основатель школы-студии микроблейдинга приглашает в свою студию создать неповторимый и эффектный образ </p>
-                    <a href="#" class="btn btn_main btn_size-l">подробнее</a>
+
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="hero__info">
+                                <span class="hero__slide-number">01</span>
+                                    <h1>Анастасия<br/>Лесникова</h1>
+                                    <p class="text-big">Основатель школы-студии микроблейдинга приглашает в свою студию создать неповторимый и эффектный образ </p>
+                                <a href="#" class="btn btn_main btn_size-l">подробнее</a>
+                                </div>
+                            
+                                <div class="hero__img">
+                                    <div class="hero__img-inner" style="background-image: url(/img/bg/bg-hero.jpg);"></div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="hero__info">
+                                <span class="hero__slide-number">01</span>
+                                    <h1>Новый курс<br/>"Татуаж губ"</h1>
+                                    <p class="text-big">Стартует новый курс по татуажу губ от Анастасии Лесниковой. Для новичков и продвинутых мастеров. </p>
+                                <a href="#" class="btn btn_main btn_size-l">записаться</a>
+                                </div>
+                            
+                                <div class="hero__img">
+                                    <div class="hero__img-inner" style="background-image: url(/img/bg/bg-hero.jpg);"></div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="hero__img">
-                        <div class="hero__img-inner" style="background-image: url(/img/bg/bg-hero.jpg);"></div>
-                    </div>
+
+                </div>
+
+                <div class="container hero__controls" style="height: 94px;">
+                    
+                    <h1 class="slide-prev"> prev </h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <h1 class="slide-next">next </h1>
                 </div>
                 
             </div>
-
 
 
 
@@ -107,7 +136,7 @@
 
 
 
-            <div class="sticky-header">
+<!--             <div class="sticky-header">
                 <div class="container">
                     <a href="/" class="logo">логотип компании</a>
                     some text
@@ -118,7 +147,7 @@
                     </div>
                 </div>
                 <div id="progress"></div>
-            </div>
+            </div> -->
 
             
 
@@ -199,5 +228,16 @@
         <!-- <script src="/js/jquery.nice-select.min.js"></script> -->
         <script src="/js/jquery.scrollme.js"></script>
         <script src="/js/script.js"></script>
+
+
+          <script>
+            var swiper = new Swiper('.swiper-container', {
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+              speed: 0,
+            });
+          </script>
     </body>
 </html>

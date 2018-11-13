@@ -1,12 +1,6 @@
 
 
 .icon {
-	display: inline-block;
-	// @include flex-row(wrap, space-between, flex-start);
-	position: relative;
-	padding-left: 35px;
-	// align-items: center;
-	// justify-content: center;
 
 	transition: $tr;
 
@@ -21,7 +15,9 @@
 	}
 }
 
+
 .icon_vk {
+	height: 18px;
 	width: 18px;
 
 	&:after {
@@ -29,10 +25,12 @@
 	}
 }
 
-.icon_tel {
+
+.icon_insta {
 	width: 18px;
+	height: 18px;
 
 	&:after {
-		background-image: url(/img/icons/i-phone.png);	
+		background-image: url(/img/icons/i-insta.png);	
 	}
 }
