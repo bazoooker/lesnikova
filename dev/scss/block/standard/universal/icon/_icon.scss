@@ -1,28 +1,7 @@
 
 
 .icon {
-
 	transition: $tr;
-
-	&:after {
-		@include pseudo;
-		height: 20px;
-		width: 20px;
-		top: 50%;
-	    left: 0%;
-		transform: translateY(-50%);
-	    @include bg-contain;
-	}
-}
-
-
-.icon_vk {
-	height: 18px;
-	width: 18px;
-
-	&:after {
-		background-image: url(/img/icons/i-vk.png);	
-	}
 }
 
 

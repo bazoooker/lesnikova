@@ -13,58 +13,180 @@
 		height: 100%;
 		background-color: $color_gray-light;
 		z-index: -2;
-		transition: 600ms ease-in-out;
+		transition: 700ms ease-in-out;
 		transition-delay: 300ms;
-
-		// изменяется при загрузке
-		width: 0;
+		width: 518px;
 	}
 
 	.container {
 		position: relative;
-		height: 0%;
+		height: 100%;
 		width: 100%;
 
 		@include flex-row(nowrap,flex-start,center);
 		transition: 1000ms;
+	}
 
-		// изменяется при загрузке
+	.swiper-pagination {
+		right: 20px;
+		@include flex-row(nowrap,flex-end,center);
+	}
+
+	.arrow {
+		position: relative;
+		display: inline-block;
+		height: 24px;
+
+		background-color: transparent;
+
+		transition: width 950ms;
+		cursor: pointer;
+			
+		width: 0;
+		opacity: 0;
 		overflow: hidden;
+
+		&::after {
+			position: absolute;
+			content: '';
+
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+
+			height: 1px;
+			width: 100%;
+
+			background-color: $color_gray;
+			transition: $tr;
+
+		}
+
+		&:hover {
+			&::before{
+				border-color: $color_main !important;
+			}
+			&::after {
+				background-color: $color_main !important;
+			}
+		}
+	}
+
+	.arrow_active {
+		display: block;
+		width: 134px;
+		opacity: 1;
+		margin: 0 8px;
+		overflow: visible;
+
+		&::after { background-color: black;	}
+		&::before { border-color: black; }
+	}
+
+	.arrow_right{
+		&::before {
+			position: absolute;
+			content: '';
+
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%) rotate(-45deg);
+
+			width: 9px;
+			height: 9px;
+
+			border-right: 1px solid $color_gray;
+			border-bottom: 1px solid $color_gray;
+			transition: $tr;
+		}
+		&.arrow_active {
+			&::before { border-color: black; }
+		}
+	}
+	.arrow_left{
+			&::before {
+			position: absolute;
+			content: '';
+
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%) rotate(45deg);
+
+			width: 9px;
+			height: 9px;
+
+			border-left: 1px solid $color_gray;
+			border-bottom: 1px solid $color_gray;
+			transition: $tr;
+		}
+		&.arrow_active {
+			&::before { border-color: black; }
+		}
+	}
+
+	.bullet {
+		display: inline-block;
+		width: auto;
+		height: 20px;
+		margin: 0 8px;
+		line-height: 20px;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: $tr;
+		&:hover {
+			color: $color_main;
+		}
+	}
+
+	.bullet_active {
+		color: black;
+		&:hover {
+			color: black;
+		}
+	}
+
+	.pagination__item {
+		@include flex-row(nowrap,flex-end,center);
+	}
+	.swiper-slide {
+		@include flex-row(nowrap,flex-start,center);
 	}
 }
 
 
 
-.hero_active {
-	&::before {
-		width: 518px;
-	}
-	.container {
-		width: 100%;
-		height: 100%;
-		transform: translateX(0);
-	}
-	.hero__controls {opacity: 1; transform: translateY(0); transition-delay: 900ms;}
+
+.hero__slide-number {
+    transition: 500ms ease-in-out;	
+    transition-delay: 0ms;
 }
-
-
-
-.hero__slide-number {}
 .hero__info {
-	width: 441px;
-	transition: 500ms;
-	transition-delay: 250ms;
+	// width: 441px;
+	min-width: 430px;
+	max-width: 530px;
+	transition: 900ms ease-in-out;
 
 	h1 {
 		margin: $gutter/2 0 $gutter*2 0;
 		letter-spacing: 3px;
 		font-weight: 300;
 	    @include font-kit(58px, 49px, 41px, 36px, 33px);
-	    @include line-height-kit(1.30, 1.35, 1.40, 1.45, 1.50);		
+	    @include line-height-kit(1.30, 1.35, 1.40, 1.45, 1.50);	
+
+	    transition: 500ms ease-in-out;	
+	    transition-delay: 0ms;
 	}
 	p {	
 		margin-bottom: $gutter*2; 
 		color: $color_gray-dark; 
+
+		transition: 500ms ease-in-out;
+		transition-delay: 180ms;
+	}
+
+	a {
+		transition: 500ms ease-in-out;
+		transition-delay: 360ms;
 	}
 }
 .hero__img {
@@ -78,8 +200,8 @@
 	padding: 0 0 0 94px;
 	z-index: -1;
 
-	transition: 400ms ease-in-out;
-	transition-delay:200ms;
+	transition: 850ms ease-in-out;
+	// transition-delay:200ms;
 }
 .hero__img-inner {
 	width: 100%;
@@ -88,36 +210,8 @@
 	@include bg-cover;
 }
 
-.hero__controls { 
-	opacity: 0; 
-	transition: 800ms;
-	transform: translateY(-30px);
-}
 
-
-
-
-
-
-.slide-next {
-	display: inline-block;
-	padding: 20px;
-	cursor: pointer;
-	&:hover {
-		background-color: $color_main;
-		color: #fff;
-	}
-}
-.slide-prev {
-	display: inline-block;
-	padding: 20px;
-	cursor: pointer;
-	&:hover {
-		background-color: $color_main;
-		color: #fff;
-	}
-}
-
+// сборка-разборка слайда
 
 .hero.up {
 	&::before {
@@ -125,17 +219,29 @@
 	}
 }
 .hero__img.up {width: 0; opacity: 0;}
-// .swiper-slide.up {transform: translateX(-100%);}
-.swiper-slide {
-	@include flex-row(nowrap,flex-start,center);
-	// transition: 700ms ease-out;
+
+
+.hero__slide-number.up {opacity: 0; transform: translateX(130px);}
+
+.hero__info {
+	h1.up,p.up,a.up {
+		opacity: 0; transform: translateX(130px);
+	}
 }
 
-.hero__info.up {opacity: 0; transform: translateX(30px)}
 
-// .hero.up {
-// 	&::before {
-// 		transform: translateX(-500px);
-// 	}
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

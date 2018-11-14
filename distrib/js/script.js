@@ -2,59 +2,107 @@
 //   $('select').niceSelect();
 // });
 
-//новости с ленивой загрузкой
 
-$(document).ready(function(){ 
+$(document).ready(function(){
 
 
-    function showHero() {
-        $('.hero').addClass('hero_active');        
+
+
+
+// РџР РћРњРћ Р‘Р›РћРљ 
+// ===================================================================================
+
+
+    // РїСЂРё РЅР°Р¶Р°С‚РёРё РЅР° Р±СѓР»Р»РµС‚С‹ Рё СЃС‚СЂРµР»РєРё:
+    // 1. Р·Р°РїСѓСЃРєР°РµС‚СЃСЏ СЂР°Р·Р±РѕСЂ СЃР»Р°Р№РґР° - СЌР»РµРјРµРЅС‚С‹ СѓРµР·Р¶Р°СЋС‚ СЃ СЌРєСЂР°РЅР°
+    // 2. Р’С‹Р·С‹РІР°РµС‚СЃСЏ СЃРјРµРЅР° СЃР»Р°Р№РґР° СЃ РЅСѓР»РµРІС‹Рј РІСЂРµРјРµРЅРµРј РїРµСЂРµС…РѕРґР° (РјРіРЅРѕРІРµРЅРЅРѕ)
+    // 3. РќРѕРІС‹Р№ СЃР»Р°Р№Рґ СЃРѕР±РёСЂР°РµС‚СЃСЏ - СЌР»РµРјРµРЅС‚С‹ РїРѕСЏРІР»СЏСЋС‚СЃСЏ РЅР° СЌРєСЂР°РЅРµ
+
+
+    // РѕСЃРЅРѕРІРЅРѕР№ СЃР»Р°Р№РґРµСЂ
+    var swiper = new Swiper('.swiper-container', {
+      speed: 0,
+    });
+
+
+
+    // СЂР°Р·РѕР±СЂР°С‚СЊ СЃР»Р°Р№Рґ РґРѕ СЃРІР°Р№РїР°
+    function breakSlide() {
+        $('.hero').addClass('up');
+        $('.swiper-slide').find('.hero__slide-number, .hero__info h1, .hero__info p, .hero__info a, .hero__img').addClass('up');
+        console.log('break slide');
     }
 
-    // setTimeout(whoosh, 100);
-    setTimeout(showHero, 500);
+    // СЃРѕР±СЂР°С‚СЊ СЃР»Р°Р№Рґ РїРѕСЃР»Рµ СЃРІР°Р№РїР°
+    function makeupSlide() {
+        $('.hero').removeClass('up');
+        $('.swiper-slide').find('.hero__slide-number, .hero__info h1, .hero__info p, .hero__info a, .hero__img').removeClass('up');
+        console.log('make slide');
+    }
 
-    // function slideNext() {
-    //     swiper.slideNext();
-    // }
-
-    // function slideUp() {
-    //     $('.swiper-slide-active').addClass('up');
-    //     $('.swiper-slide-active > .hero__info').addClass('up');
-    //     $('.hero').addClass('up');
-    // }
-    // function slideDown() {
-    //     $('.swiper-slide').removeClass('up');
-    //     $('.hero__info').removeClass('up');
-    //     $('.hero').removeClass('up');
-    // }
-
+    // СЃРІР°Р№Рї РІР»РµРІРѕ-СЃРїСЂР°РІРѕ
+    function slideNext() { 
+        swiper.slideNext(0);
+        makeupSlide(); 
+    }
+    function slidePrev() { 
+        swiper.slidePrev(0);
+        makeupSlide(); 
+    }
 
 
-
-
-
-
-    $('.slide-next').click(function() {
-
-        let activeSlide = $('.swiper-slide');
-
-        function nextSlide() {
-            swiper.slideNext(0);
-            activeSlide.find('.hero__info').removeClass('up');
-            activeSlide.find('.hero__img').removeClass('up');
-            $('.hero').removeClass('up');
-        }
-
-
-        $('.hero').addClass('up');
-        activeSlide.find('.hero__info').addClass('up');
-        activeSlide.find('.hero__img').addClass('up');
-        setTimeout(nextSlide, 800);
-
-        
-        
+    // С‚СЂРёРіРіРµСЂС‹
+    $('.js-slide-next').click(function() {
+        $(this).parent().find('.arrow_active').removeClass('arrow_active');
+        $(this).parent().find('.bullet_active').removeClass('bullet_active');
+        $(this).parent().next().find('.arrow').addClass('arrow_active');
+        breakSlide();
+        setTimeout(slideNext, 950);
     });
+
+    $('.js-slide-prev').click(function() {
+        $(this).parent().find('.arrow_active').removeClass('arrow_active');
+        $(this).parent().find('.bullet_active').removeClass('bullet_active');
+        $(this).parent().prev().find('.arrow').addClass('arrow_active')
+        breakSlide();
+        setTimeout(slidePrev, 950);
+    });
+
+    $('.js-slide-to-me').click(function(event) {
+        var me = $(this);
+        var myNum = me.attr('data-slide-to');
+
+        // РµСЃР»Рё РЅР°Р¶Р°С‚ С‚РµРєС‰СѓС‰РёР№ СЃР»Р°Р№Рґ, РЅРёС‡РµРіРѕ РЅРµ РїСЂРѕРёСЃС…РѕРґРёС‚
+        if(me.hasClass('bullet_active')) {
+            return false;
+        } else {
+            breakSlide();
+
+            $('.bullet').removeClass('bullet_active');
+            me.addClass('bullet_active');
+
+            $('.arrow').removeClass('arrow_active');
+            me.parent().find($('.arrow')).addClass('arrow_active');
+
+            function slideToMe() {
+                swiper.slideTo(myNum, 0);
+                makeupSlide();
+            }
+
+            setTimeout(slideToMe, 950);
+        }
+    });
+
+
+// =========================================================================================
+// РџР РћРњРћ Р‘Р›РћРљ РљРћРќР•Р¦ 
+
+
+
+
+
+
+
 
 
 
@@ -102,7 +150,7 @@ $(document).ready(function(){
 });
 
 
-// инпуты как любит белокуриха
+// РёРЅРїСѓС‚С‹ РєР°Рє Р»СЋР±РёС‚ Р±РµР»РѕРєСѓСЂРёС…Р°
 $(document).ready(function(){
 	$('.formgroup input,.formgroup textarea').blur();
 
@@ -155,18 +203,18 @@ $(document).ready(function(){
 
     // slide on thumbnails
 
-    // первая миниатюра станет активной
+    // РїРµСЂРІР°СЏ РјРёРЅРёР°С‚СЋСЂР° СЃС‚Р°РЅРµС‚ Р°РєС‚РёРІРЅРѕР№
     $('.js-object-slide').first().addClass('hero-object-thumbnail_active');
 
     $('.js-object-slide').click(function() {
         var thumbIndex = $(this).index(),
             curThumb = $('.hero-object-thumbnail').get(thumbIndex);
 
-        // при клике на данную миниатюру делаем ее активной
+        // РїСЂРё РєР»РёРєРµ РЅР° РґР°РЅРЅСѓСЋ РјРёРЅРёР°С‚СЋСЂСѓ РґРµР»Р°РµРј РµРµ Р°РєС‚РёРІРЅРѕР№
         $('.hero-object-thumbnail').removeClass('hero-object-thumbnail_active');
         $(curThumb).addClass('hero-object-thumbnail_active');
 
-    // при клике на данную миниатюру листаем свайпер
+    // РїСЂРё РєР»РёРєРµ РЅР° РґР°РЅРЅСѓСЋ РјРёРЅРёР°С‚СЋСЂСѓ Р»РёСЃС‚Р°РµРј СЃРІР°Р№РїРµСЂ
         swiperObjects.slideTo(thumbIndex, 300);
     });
 
@@ -248,16 +296,16 @@ $(document).ready(function(){
         if (slide_number!=swiperHero.activeIndex) {
              wows = new WOW(
       {
-        boxClass:     'wows',      // класс, скрывающий элемент до момента отображения на экране (по умолчанию, wow)
-        animateClass: 'animated', // класс для анимации элемента (по умолчанию, animated)
-        offset:       0,          // расстояние в пикселях от нижнего края браузера до верхней границы элемента, необходимое для начала анимации (по умолчанию, 0)
-        mobile:       true,       // включение/отключение WOW.js на мобильных устройствах (по умолчанию, включено)
-        live:         true,       // поддержка асинхронно загруженных элементов (по умолчанию, включена)
+        boxClass:     'wows',      // РєР»Р°СЃСЃ, СЃРєСЂС‹РІР°СЋС‰РёР№ СЌР»РµРјРµРЅС‚ РґРѕ РјРѕРјРµРЅС‚Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РЅР° СЌРєСЂР°РЅРµ (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, wow)
+        animateClass: 'animated', // РєР»Р°СЃСЃ РґР»СЏ Р°РЅРёРјР°С†РёРё СЌР»РµРјРµРЅС‚Р° (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, animated)
+        offset:       0,          // СЂР°СЃСЃС‚РѕСЏРЅРёРµ РІ РїРёРєСЃРµР»СЏС… РѕС‚ РЅРёР¶РЅРµРіРѕ РєСЂР°СЏ Р±СЂР°СѓР·РµСЂР° РґРѕ РІРµСЂС…РЅРµР№ РіСЂР°РЅРёС†С‹ СЌР»РµРјРµРЅС‚Р°, РЅРµРѕР±С…РѕРґРёРјРѕРµ РґР»СЏ РЅР°С‡Р°Р»Р° Р°РЅРёРјР°С†РёРё (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, 0)
+        mobile:       true,       // РІРєР»СЋС‡РµРЅРёРµ/РѕС‚РєР»СЋС‡РµРЅРёРµ WOW.js РЅР° РјРѕР±РёР»СЊРЅС‹С… СѓСЃС‚СЂРѕР№СЃС‚РІР°С… (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, РІРєР»СЋС‡РµРЅРѕ)
+        live:         true,       // РїРѕРґРґРµСЂР¶РєР° Р°СЃРёРЅС…СЂРѕРЅРЅРѕ Р·Р°РіСЂСѓР¶РµРЅРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, РІРєР»СЋС‡РµРЅР°)
         callback:     function(box) {
-          // функция срабатывает каждый раз при старте анимации
-          // аргумент box — элемент, для которого была запущена анимация
+          // С„СѓРЅРєС†РёСЏ СЃСЂР°Р±Р°С‚С‹РІР°РµС‚ РєР°Р¶РґС‹Р№ СЂР°Р· РїСЂРё СЃС‚Р°СЂС‚Рµ Р°РЅРёРјР°С†РёРё
+          // Р°СЂРіСѓРјРµРЅС‚ box вЂ” СЌР»РµРјРµРЅС‚, РґР»СЏ РєРѕС‚РѕСЂРѕРіРѕ Р±С‹Р»Р° Р·Р°РїСѓС‰РµРЅР° Р°РЅРёРјР°С†РёСЏ
         },
-        scrollContainer: null // селектор прокручивающегося контейнера (опционально, по умолчанию, window)
+        scrollContainer: null // СЃРµР»РµРєС‚РѕСЂ РїСЂРѕРєСЂСѓС‡РёРІР°СЋС‰РµРіРѕСЃСЏ РєРѕРЅС‚РµР№РЅРµСЂР° (РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, window)
       }
     ).init();
  slide_number=swiperHero.activeIndex;
@@ -273,7 +321,7 @@ $(document).ready(function(){
     });
 
 
-    /* МОДАЛЬНЫЕ ОКНА */
+    /* РњРћР”РђР›Р¬РќР«Р• РћРљРќРђ */
 $(document).ready(function(){        
     $(".callback-link").on('click', function(){
         var btn = $(this);                        
@@ -297,14 +345,14 @@ $(document).ready(function(){
 
     });
 });
-/* МОДАЛЬНЫЕ ОКНА END */
+/* РњРћР”РђР›Р¬РќР«Р• РћРљРќРђ END */
 
 
 
 
 
 
-// отправка колбека
+// РѕС‚РїСЂР°РІРєР° РєРѕР»Р±РµРєР°
 $(".modal form").on('submit', function(e){
         e.preventDefault();
         var modal = $(this).parents('.modal');
@@ -471,7 +519,7 @@ $(document).ready(function () {
     // $('.js-accordeon .js-accordeon__content').slideUp(0);    
     $('.js-accordeon .js-accordeon__label').click(function() {
 
-        // подсвечиваем открытый аккордеон
+        // РїРѕРґСЃРІРµС‡РёРІР°РµРј РѕС‚РєСЂС‹С‚С‹Р№ Р°РєРєРѕСЂРґРµРѕРЅ
         if ( $(this).parent().hasClass('opened') ) {
             $(this).parent().removeClass('opened');
             $(this).parent().children('.js-accordeon__content').slideUp(300);
@@ -518,7 +566,7 @@ $(document).ready(function () {
             console.log('show acc');
         }
 
-        // подсвечиваем открытый аккордеон
+        // РїРѕРґСЃРІРµС‡РёРІР°РµРј РѕС‚РєСЂС‹С‚С‹Р№ Р°РєРєРѕСЂРґРµРѕРЅ
         // if ( $(this).parent().hasClass('opened') ) {
         //     $(this).parent().removeClass('opened');
         //     $(this).parent().children('.js-accordeon__content').slideUp(300);
@@ -619,22 +667,22 @@ function openMenu() {
 
 // triggers
 $(document).ready(function() {   
-    $('.js-menu-controls').click(openMenu);
-    $('.js-menu-close').click(openMenu);
+    // $('.js-menu-controls').click(openMenu);
+    // $('.js-menu-close').click(openMenu);
     // $('.menu .nav-full .nav-full__list li a').click(openMenu);
-    $('.js-scroll-to-top').click(scrollToTop);
+    // $('.js-scroll-to-top').click(scrollToTop);
 
     // tags
-    $('.overlay_menu').click(openMenu);
+    // $('.overlay_menu').click(openMenu);
     // $('.overlay_modal').click(openModal);
-    $('.js-slide-tagcontainer').click(showTags);
+    // $('.js-slide-tagcontainer').click(showTags);
 
-    $('.filter-category__name').click(opeFilterCategory);
+    // $('.filter-category__name').click(opeFilterCategory);
 
 
-    $(window).scroll(showStickyHeader);  
-    $(window).scroll(showToTopButton);    
-    $(window).scroll(moveProgress);    
+    // $(window).scroll(showStickyHeader);  
+    // $(window).scroll(showToTopButton);    
+    // $(window).scroll(moveProgress);    
 });
 
 // close on "esc"
@@ -650,7 +698,7 @@ $(document).on( 'keydown', function ( e ) {
 
 // BTN-GROUP
 
-// показать карту
+// РїРѕРєР°Р·Р°С‚СЊ РєР°СЂС‚Сѓ
 function showMap() {
     var isActive = $('.showtype').hasClass('showtype_active-map');
     var btnGroup = $('.showtype');
@@ -668,7 +716,7 @@ function showMap() {
     } 
 }
 
-// показать список
+// РїРѕРєР°Р·Р°С‚СЊ СЃРїРёСЃРѕРє
 function showList() {    
     var isActive = $('.showtype').hasClass('showtype_active-list');
     var btnGroup = $('.showtype');
@@ -689,8 +737,8 @@ function showList() {
 
 // triggers
 $(document).ready(function() {   
-    $('.showtype_map').click(showMap);    
-    $('.showtype_list').click(showList);    
+    // $('.showtype_map').click(showMap);    
+    // $('.showtype_list').click(showList);    
 });
 
 
