@@ -1,0 +1,106 @@
+.services {
+	margin: -110px -20px 0 -20px;
+
+
+}
+
+.services__row {
+	&.flex-start {
+		@include flex-row(wrap,flex-start,flex-end);
+	}
+	&.flex-end {
+		@include flex-row(wrap,flex-end,flex-start);
+	}
+}
+
+
+.services__arrow {
+		flex-grow: 1;
+		position: relative;
+		display: inline-block;
+		height: 500px;
+
+		background-color: transparent;
+
+		transition: width 950ms;
+		cursor: pointer;
+			
+		&::after {
+			position: absolute;
+			content: '';
+
+			top: 50%;
+			transform: translateY(-50%);
+			right: 20px;
+
+			height: 1px;
+			width: 65%;
+
+			background-color: $color_gray;
+			transition: $tr;
+
+		}
+
+		&::before {
+			position: absolute;
+			content: '';
+
+			right: 20px;
+			top: 50%;
+			transform: translateY(-50%) rotate(-45deg);
+
+			width: 9px;
+			height: 9px;
+
+			border-right: 1px solid $color_gray;
+			border-bottom: 1px solid $color_gray;
+			transition: $tr;
+		}
+
+		&:hover {
+			&::before{
+				border-color: black !important;
+			}
+			&::after {
+				background-color: black !important;
+			}
+
+			.link-square {opacity: 1;transform: translateY(-50%);}
+		}
+
+		.link-square {
+			position: absolute;
+			right: 0px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 40px;
+			height: 40px;
+			background-color: #fff;
+			border: 1px solid $color_main;
+			z-index: -1;
+			transition: 400ms;
+
+			opacity: 0;
+			transform: translateY(-50%) translateX(10px);
+
+		}
+}
+
+
+.venzel-1 {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		content: '';
+
+		width: 500px;
+		height: 500px;
+
+		left: -150px;
+		bottom: -250px;
+
+		background-image: url(/img/bg/bg-venzel-3.png);
+		@include bg-contain;
+	}
+}
