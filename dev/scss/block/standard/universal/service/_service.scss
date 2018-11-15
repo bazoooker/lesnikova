@@ -2,6 +2,10 @@
 	position: relative; cursor: pointer;
 	overflow: hidden;
 
+
+	// ХОВЕРЫ
+	// =================================
+
 	&:hover {
 		.service__img-overlay {
 			opacity: .95;
@@ -67,18 +71,7 @@
 		background-color: transparent;
 		border: 1px solid rgba(255,255,255,.2);
 	}
-	// &::before {
-	// 	position: absolute;
-	// 	content: '';
-	// 	width: 100%;
-	// 	height: 100%;
-	// 	left: 0;
-	// 	top: 0;
-	// 	background-image: url(/img/bg/bg-service-overlay.png);
-	// 	background-size: cover;
-	// 	background-position: bottom left;
-	// 	background-repeat: no-repeat;
-	// }
+
 }
 
 .service__caption {

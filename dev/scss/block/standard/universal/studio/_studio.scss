@@ -1,0 +1,6 @@
+.studio {}
+.studio__thumbs {
+	@include flex-row(nowrap, space-between, flex-end);
+	// margin: 0 -15px 0 -15px;
+	// width: 100%;
+}

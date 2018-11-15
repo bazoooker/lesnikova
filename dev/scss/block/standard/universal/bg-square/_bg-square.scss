@@ -1,0 +1,16 @@
+.bg-square {
+	position: relative;
+	&::before {
+		position: absolute;
+		content: '';
+
+		width: 60%;
+		height: 115%;
+
+		right: 0;
+		top: -15%;
+
+		background-color: $color_gray-light;
+		z-index: -1;
+	}
+}

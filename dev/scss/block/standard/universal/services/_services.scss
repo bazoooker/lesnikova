@@ -57,16 +57,16 @@
 			transition: $tr;
 		}
 
-		&:hover {
-			&::before{
-				border-color: black !important;
-			}
-			&::after {
-				background-color: black !important;
-			}
+		// &:hover {
+		// 	&::before{
+		// 		border-color: black !important;
+		// 	}
+		// 	&::after {
+		// 		background-color: black !important;
+		// 	}
 
-			.link-square {opacity: 1;transform: translateY(-50%);}
-		}
+		// 	.link-square {opacity: 1;transform: translateY(-50%);}
+		// }
 
 		.link-square {
 			position: absolute;
@@ -84,23 +84,4 @@
 			transform: translateY(-50%) translateX(10px);
 
 		}
-}
-
-
-.venzel-1 {
-	position: relative;
-
-	&::after {
-		position: absolute;
-		content: '';
-
-		width: 500px;
-		height: 500px;
-
-		left: -150px;
-		bottom: -250px;
-
-		background-image: url(/img/bg/bg-venzel-3.png);
-		@include bg-contain;
-	}
 }

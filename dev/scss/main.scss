@@ -63,6 +63,15 @@
 @import "block/standard/universal/caption/caption";
 @import "block/standard/universal/services/services";
 @import "block/standard/universal/service/service";
+@import "block/standard/universal/venzel/venzel";
+
+@import "block/standard/universal/bg-square/bg-square";
+
+@import "block/standard/universal/about/about";
+
+@import "block/standard/universal/studio/studio";
+@import "block/standard/universal/thumb-group/thumb-group";
+@import "block/standard/universal/thumb/thumb";
 
 
 // E-SHOP BLOCKS
@@ -94,6 +103,7 @@
 
 // libs
 @import "assets/libs/animate";
+@import "assets/libs/lightbox/lightbox";
 
 
 

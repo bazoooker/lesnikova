@@ -1,0 +1,30 @@
+.thumb-group {
+	margin: 0px;
+}
+.thumb-group_left {
+	@include flex-row(wrap, center, center);
+	flex-grow: 1;
+}
+.thumb-group_right {
+	position: relative;
+	@include flex-col(nowrap, flex-end, flex-start);
+	flex: 0 1 290px;
+	height: 770px;
+
+	.caption {
+		position: absolute;
+	    top: 100px;
+	    left: -180px;
+	}
+}
+
+.thumb-group__inner {
+	flex: 1 1 100%;
+	max-width: 100%;
+}
+.thumb-group__inner_top {
+	@include flex-row(nowrap, flex-end, flex-end);
+}
+.thumb-group__inner_bottom {
+	@include flex-row(nowrap, flex-end, flex-start);
+}
