@@ -33,3 +33,21 @@
 		@include bg-contain;
 	}
 }
+
+.venzel-3 {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		content: '';
+
+		width: 500px;
+		height: 500px;
+
+		left: -185px;
+		bottom: -350px;
+
+		background-image: url(/img/bg/bg-venzel-2.png);
+		@include bg-contain;
+	}
+}

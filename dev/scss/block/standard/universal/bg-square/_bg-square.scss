@@ -14,3 +14,20 @@
 		z-index: -1;
 	}
 }
+
+.bg-square-left {
+	position: relative;
+	&::before {
+		position: absolute;
+		content: '';
+
+		width: 70%;
+		height: 115%;
+
+		left: 0;
+		top: -15%;
+
+		background-color: $color_gray-light;
+		z-index: -1;
+	}
+}

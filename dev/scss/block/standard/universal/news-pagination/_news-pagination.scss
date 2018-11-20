@@ -1,0 +1,40 @@
+.news-pagination {
+	text-align: left;
+	padding: 0 35px 30px 35px;
+	.swiper-pagination-bullet {
+		margin: 0 16px !important;
+		position: relative;
+		background-color: transparent;
+		// border: 1px solid black;
+		box-shadow: 0 0 1px 1px $color_main;
+		width: 6px;
+		height: 6px;
+		opacity: 1;
+		transition: 400ms;
+
+		&::before {
+			position: absolute;
+			content: '';
+			left: 50%;
+			top: 50%;	
+			transform: translateX(-50%) translateY(-50%);
+			width: 9px;
+			height: 9px;
+			background-color: transparent;
+			border: 1px solid transparent;
+			border-radius: 50%;
+			transition: 500ms;
+		}
+	}
+	.swiper-pagination-bullet-active {
+		background-color: black;
+		box-shadow: none;
+
+		&::before {
+			width: 22px;
+			height: 22px;
+			background-color: transparent;
+			border: 1px solid $color_main;
+		}
+	}
+}
