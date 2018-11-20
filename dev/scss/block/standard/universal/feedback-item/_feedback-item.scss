@@ -1,0 +1,87 @@
+.feedback-item {
+	@include flex-row(nowrap, flex-start, flex-start);
+
+	position: relative;
+	padding: 30px 0;
+}
+.feedback-item__img {
+	position: relative;
+	flex: 0 0 350px;
+	max-width: 350px;
+
+	// position: absolute;
+	// left: 0;
+	// bottom: 0;
+	// width: 350px;
+
+	height: 365px;
+	@include bg-cover;
+
+	&::before {
+		position: absolute;
+		content: '';
+		width: 94px;
+		height: 76px;
+		right: -28px;
+		top: -32px;
+		background-image: url(/img/bg/bg-quotes-2.png);
+		@include bg-contain;
+		z-index: 2;
+	}
+}
+.feedback-item__text {
+	// flex-grow: 1;
+	margin: 0 0 0 60px;
+	// padding: 0 0 0 410px;
+}
+.feedback-item__text-cropped { 
+	color: #fff; 
+	margin-bottom: 15px;
+	height: 108px;
+	overflow: hidden;
+	transition: 600ms;
+
+
+	&.full {
+		height: auto;
+	}
+}
+.feedback-item__show-btn {
+	position: relative;
+	margin-bottom: 30px;
+	padding: 0 0 2px 0;
+	background-color: transparent;
+	color: #b8e3e6;
+	text-transform: uppercase;
+	border: 0;
+	border-bottom: 1px dashed #b8e3e6;
+	outline: 0;
+	cursor: pointer;
+	transition: $tr;
+
+	&::before {
+		position: absolute;
+		content: '';
+		width: 10px;
+		height: 10px;
+		top: 5px;
+		transform: translateY(-50%) rotate(45deg);
+		right: -30px;
+		background-color: transparent;
+
+		border-bottom: 1px solid #b8e3e6;
+		border-right: 1px solid #b8e3e6;
+		transition: $tr;
+	}
+
+	&:hover {
+		color: #fff;
+		border-bottom: 1px dashed #fff;
+		&::before { border-color: #fff; }
+	}
+
+}
+.feedback-item__name-date {
+	cite, date {display: block; color: #fff;}
+	cite {margin-bottom: 5px;}
+}

@@ -153,6 +153,70 @@ $(document).ready(function(){
 });
 
 
+// ОТЗЫВЫ
+// ===================================================================================
+
+    // основной слайдер
+    var feedbackSwiper = new Swiper('.swiper-feedback', {
+      speed: 300,
+        navigation: {
+            nextEl: '.swiper-feedback__btn-next',
+            prevEl: '.swiper-feedback__btn-prev',
+        },
+    });
+
+
+// =========================================================================================
+// ОТЗЫВЫ КОНЕЦ 
+
+
+
+
+
+// ОБУЧЕНИЕ
+// ===================================================================================
+
+    var teachingSwiper = new Swiper('.swiper-teaching', {
+      speed: 300,
+      pagination: {
+        clickable: true,
+        el: '.teaching-pagination',
+      },
+    });
+
+
+// =========================================================================================
+// ОБУЧЕНИЕ КОНЕЦ 
+
+
+
+
+
+// $('.feedback-item__show-btn').click(function() {
+//     var feedbackItemHeight = $(this).parent().find('.feedback-item__text-cropped').height();
+//     var feedbackContainerHeight = $(this).parent().parent().parent().parent().parent().parent().parent().height();
+//     var feedbackContainer = $(this).parent().parent().parent().parent().parent().parent().parent();
+//     $(this).parent().find('.feedback-item__text-cropped').toggleClass('full');
+//     console.log(feedbackItemHeight);
+//     console.log(feedbackContainerHeight);
+
+    // feedbackContainer.css('height', feedbackContainerHeight+feedbackItemHeight);
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // инпуты как любит белокуриха
 $(document).ready(function(){
 	$('.formgroup input,.formgroup textarea').blur();

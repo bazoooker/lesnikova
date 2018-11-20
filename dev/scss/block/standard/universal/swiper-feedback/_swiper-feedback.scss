@@ -1,0 +1,32 @@
+.swiper-feedback {}
+
+.swiper-feedback__controls {
+	position: absolute;
+	bottom: 30px;
+	left: 410px;
+	width: 186px;
+	height:16px;
+	@include flex-row(nowrap,space-between,center);
+}
+
+.swiper-feedback__btn-next,
+.swiper-feedback__btn-prev {
+	flex: 0 0 63px;
+	max-width: 63px;
+	height: 16px;
+	@include bg-contain;
+	position: relative;
+	transition: 600ms;
+	opacity: .65;
+}
+
+.swiper-feedback__btn-next {
+	// float: right;
+	background-image: url(/img/icons/arrow-r.png);
+	&:hover {transform: translateX(6px); opacity: 1;}
+}
+.swiper-feedback__btn-prev {
+	// float: left;
+	background-image: url(/img/icons/arrow-l.png);
+	&:hover {transform: translateX(-6px); opacity: 1;}
+}

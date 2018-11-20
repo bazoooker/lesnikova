@@ -72,7 +72,7 @@ p {
 
 .text-big {
     @include font-kit(18px, 17px, 16px, 15px, 15px);
-    @include line-height-kit(1.65, 1.65, 1.7, 1.7, 1.75);
+    @include line-height-kit(1.5, 1.5, 1.6, 1.65, 1.70);
 }
 .text-regular {
     @include font-kit(14px, 14px, 14px, 13px, 13px);
@@ -88,6 +88,7 @@ p {
 .italic {font-style: italic;}
 
 .font-main {font-family: 'Merriweather', 'Open sans', sans-serif;}
+.no-margin {margin: 0 !important;}
 
 blockquote {
     & > p {
