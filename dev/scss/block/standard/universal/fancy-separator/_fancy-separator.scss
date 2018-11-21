@@ -1,0 +1,28 @@
+.fancy-separator {
+	position: relative;
+	height: 85px;
+	width: 100%;
+
+	&::before {
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 50%;
+		height: 1px;
+		width: 100%;
+		background-color: black;
+	}
+	&::after {
+		position: absolute;
+		content: '';
+		left: 50%;
+		top: 50%;
+		transform: translateY(-50%) translateX(-50%);
+		height: 135px;
+		width: 165px;
+		background-size: 85px;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background: #fff url(/img/icons/pokras-lampas-logo.jpg) no-repeat center center;
+	}
+}

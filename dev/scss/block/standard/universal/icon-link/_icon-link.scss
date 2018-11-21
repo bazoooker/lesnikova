@@ -1,0 +1,30 @@
+.icon-link {
+	display: inline-block;
+	position: relative;
+	padding-left: 31px !important;
+
+	&::before {
+		position: absolute;
+		content: '';
+
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		
+		height: 16px;
+		width: 18px;
+		
+		@include bg-contain;
+	}
+}
+
+.icon-link_tel {
+	&::before {
+		background-image: url(/img/icons/i-phone.png);
+	}
+}
+.icon-link_mail {
+	&::before {
+		background-image: url(/img/icons/i-mail.png);
+	}
+}

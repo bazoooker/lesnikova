@@ -90,6 +90,10 @@ p {
 .font-main {font-family: 'Merriweather', 'Open sans', sans-serif;}
 .no-margin {margin: 0 !important;}
 
+.text-left {text-align: left !important;}
+.text-center {text-align: center !important;}
+.text-right {text-align: right !important;}
+
 blockquote {
     & > p {
         line-height: 1.9;

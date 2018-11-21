@@ -1,13 +1,46 @@
 
 // block
 .made-by {
-    color: #fff;
-    font-size: 1.2rem;
-    opacity: .6;
-    margin: 0 0 0 0;
+    color: $color_main !important;
+
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 50% 25%;
+    padding: 23px 0 0 0;
+    transition: 400ms;
+    &:after {
+        @include pseudo;
+        top: -10px;
+        opacity: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 40px;
+        height: 25px;
+
+        background-image: url(/img/icons/i-crown.png);
+        background-size: 25px;
+        background-repeat: no-repeat;
+        background-position: 50% 25%;
+
+        transition: 300ms;
+    }
+    &:visited {
+        color: $color_main;
+    }
+    &:hover {
+        background-position: 50% 0%;
+        text-decoration: none;
+        &:after {
+            top: 0;
+            opacity: 1;
+        }
+    }
 }
 
 // elements
+
+
 .made-by__link {
     position: relative;
     color: #fff;
@@ -20,34 +53,5 @@
     font-weight: 600;
     text-decoration: none;
 
-    &:after {
-        @include pseudo;
-        top: -10px;
-        opacity: 0;
-        left: 50%;
-        transform: translateX(-50%);
-
-        width: 4rem;
-        height: 1.4rem;
-
-        background-image: url(/img/logo_roof.png);
-        background-size: 3.5rem;
-        background-repeat: no-repeat;
-        background-position: 50% 25%;
-
-        transition: 300ms;
-    }
-    &:visited {
-        color: #fff;
-    }
-    &:hover {
-        background-position: 50% 0%;
-        color: $color_main;
-        &:after {
-            top: 0;
-            opacity: 1;
-        }
-    }
 }
 
-// modificators
