@@ -616,7 +616,7 @@ function openMenu() {
 
 // triggers
 $(document).ready(function() {   
-    // $('.js-menu-controls').click(openMenu);
+    $('.js-menu-controls').click(openMenu);
     // $('.js-menu-close').click(openMenu);
     // $('.menu .nav-full .nav-full__list li a').click(openMenu);
     // $('.js-scroll-to-top').click(scrollToTop);

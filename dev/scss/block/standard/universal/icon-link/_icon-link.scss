@@ -23,8 +23,28 @@
 		background-image: url(/img/icons/i-phone.png);
 	}
 }
+.icon-link_tel-white {
+	transition: 400ms;
+	&::before {
+		background-image: url(/img/icons/i-phone-white.png);
+		transition: 400ms;
+	}
+
+	&:hover {
+		
+		&::before {
+			background-image: url(/img/icons/i-phone-black.png);
+		}		
+	}
+}
 .icon-link_mail {
 	&::before {
 		background-image: url(/img/icons/i-mail.png);
 	}
+}
+
+.icon-link_copyright {
+	&::before {
+		background-image: url(/img/icons/i-mail.png);
+	}	
 }

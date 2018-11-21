@@ -1,0 +1,50 @@
+.tile {
+	display: block;
+	position: relative;
+	margin: 5px;
+	overflow: hidden;
+
+	&:hover {
+		.tile__img-holder {
+			transform: scale(1.2);
+
+			&::before {opacity: .5;}
+		}		
+	}
+}
+
+
+
+.tile__img-holder {
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	@include bg-cover;
+	transition: 900ms;
+
+	&::before {
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: $color_main;
+		transition: 900ms;
+
+		opacity: 0;
+	}
+}
+
+
+
+.tile_size-s {
+	flex: 0 1 100%;
+	height: 160px;
+}
+.tile_size-l {
+	flex: 0 1 100%;
+	height: 345px;
+}

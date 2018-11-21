@@ -1,0 +1,28 @@
+.menu-list {
+	margin: 0;
+
+	li:first-child {
+		list-style: none;
+		padding-left: 0;
+    	margin-left: -20px;
+	}
+
+	li {margin: 0;}
+
+	a {
+		display: block;
+		padding: 14px 10px 14px 0;
+		margin: 0;
+		color: #fff;
+
+		transition: 400ms;
+
+		@include font-kit(18px, 17px, 16px, 15px, 15px);
+    	@include line-height-kit(1.5, 1.5, 1.6, 1.65, 1.70);
+
+    	&:hover {
+    		text-decoration: none;
+    		color: black;
+    	}
+	}
+}

@@ -1,15 +1,31 @@
 
 
+// .icon {
+// 	transition: $tr;
+// }
+
+
+// .icon_insta {
+// 	width: 18px;
+// 	height: 18px;
+
+// 	&:after {
+// 		background-image: url(/img/icons/i-insta.png);	
+// 	}
+// }
+
 .icon {
-	transition: $tr;
+	display: inline-block;
 }
 
-
-.icon_insta {
-	width: 18px;
-	height: 18px;
-
-	&:after {
-		background-image: url(/img/icons/i-insta.png);	
-	}
+.icon_outline {
+	width: 60px;
+	height: 60px;
+	border: 1px solid #fff;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 60px;
 }
+
+.icon_vk {background-image: url(/img/icons/i-vk-white.png);}
+.icon_inst {background-image: url(/img/icons/i-insta-white.png);}
