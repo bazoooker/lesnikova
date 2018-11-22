@@ -13,6 +13,7 @@
 
 		background-image: url(/img/bg/bg-venzel-3.png);
 		@include bg-contain;
+		z-index: -3;
 	}
 }
 
@@ -31,6 +32,7 @@
 
 		background-image: url(/img/bg/bg-venzel-1.png);
 		@include bg-contain;
+		z-index: -3;
 	}
 }
 
@@ -49,5 +51,6 @@
 
 		background-image: url(/img/bg/bg-venzel-2.png);
 		@include bg-contain;
+		z-index: -3;
 	}
 }

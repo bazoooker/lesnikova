@@ -28,3 +28,22 @@
 .thumb-group__inner_bottom {
 	@include flex-row(nowrap, flex-end, flex-start);
 }
+
+
+// @media screen and (max-width: 1024px) {
+// 	.thumb-group_left,
+// 	.thumb-group_right {
+// 		flex: 1 1 100%;
+// 		max-width: 100%;
+// 		height: auto;
+// 		flex-wrap: wrap;
+// 	}
+
+// 	.thumb-group__inner_top,
+// 	.thumb-group__inner_bottom {
+// 		@include flex-row(wrap, flex-end, flex-start);
+// 	}
+	// .thumb-group_right {
+	// 	@include flex-row(nowrap, flex-end, flex-start);
+	// }
+// }

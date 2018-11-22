@@ -205,7 +205,7 @@ $(document).ready(function(){
 // ===================================================================================
 
     var newsSwiper = new Swiper('.swiper-container-news', {
-      speed: 300,
+      speed: 400,
       slidesPerView: 2,
       spaceBetween: 30,
       pagination: {
@@ -216,6 +216,12 @@ $(document).ready(function(){
             nextEl: '.swiper-news__btn-next',
             prevEl: '.swiper-news__btn-prev',
         },
+         breakpoints: {
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 10
+            }
+        }
     });
 
 
@@ -614,13 +620,13 @@ function opeFilterCategory() {
 
 function openMenu() {
     if ( !$('.menu').hasClass('menu_active') ) {
-        $('.fuck-you').addClass('fuck-you_active');
         $('.menu').addClass('menu_active');
-        $('.menu .col-4').addClass('visible');
+        $('.menu .col-4').addClass('visible'); //анимации появления колонок
+        $('body').addClass('no-scroll');
     } else {
         $('.menu').removeClass('menu_active');
         $('.menu .col-4').removeClass('visible');
-        $('.fuck-you').removeClass('fuck-you_active');
+        $('body').removeClass('no-scroll');
     }
 }
 

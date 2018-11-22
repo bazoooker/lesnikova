@@ -46,9 +46,16 @@
 
 // }
 
-// @media screen and (max-width: 992px) {
-
-// }
+@media screen and (max-width: 992px) {
+	.page-footer__legal {
+		.col-3,
+		.col-6 {
+			flex: 1 1 100%;
+			max-width: 100%;
+			text-align: center !important;
+		}
+	}
+}
 
 // @media screen and (max-width: 768px) {
 

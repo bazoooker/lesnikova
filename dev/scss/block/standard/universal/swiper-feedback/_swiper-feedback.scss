@@ -30,3 +30,11 @@
 	background-image: url(/img/icons/arrow-l.png);
 	&:hover {transform: translateX(-6px); opacity: 1;}
 }
+
+@media screen and (max-width: 768px) {
+	.swiper-feedback__controls {
+		position: static;
+		margin: 20px auto 0 auto;
+	}
+}
+

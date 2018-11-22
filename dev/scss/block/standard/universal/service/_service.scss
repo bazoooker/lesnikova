@@ -77,7 +77,11 @@
 .service__caption {
 	@include flex-row(nowrap, space-between, center);
 	line-height: 1;
-	p {font-size: 20px;color: black; margin: 0;}
+	p {
+		@include font-kit(20px, 19px, 18px, 16px, 15px);
+		color: black; 
+		margin: 0;
+	}
 	span {font-size: 14px;color: $color_gray;}
 
 	transition: $tr;
@@ -156,5 +160,217 @@
 			width: 382px;
 			height: 160px;
 		}
+	}
+}
+
+
+@media screen and (max-width: 1200px) {
+	.service_size-1 {
+		flex: 0 1 298px;
+	    max-width: 298px;
+	    height: 227px;
+	    	.service__img-overlay {
+				&::after {
+					width: 248px;
+					height: 127px;
+				}
+			}
+	}
+	.service_size-2 {
+		flex: 0 1 486px;
+	    max-width: 486px;
+	    height: 400px;
+	    	.service__img-overlay {
+				&::after {
+					width: 436px;
+					height: 350px;
+				}
+			}
+	}
+	.service_size-3 {
+		flex: 0 1 392px;
+	    max-width: 392px;
+	    height: 278px;
+	    margin: 20px;
+	    	.service__img-overlay {
+				&::after {
+					width: 342px;
+					height: 228px;
+				}
+			}
+	}
+	.service_size-4 {
+		flex: 0 1 392px;
+	    max-width: 392px;
+	    height: 225px;
+	    	.service__img-overlay {
+				&::after {
+					width: 342px;
+					height: 125px;
+				}
+			}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.service_size-1 {
+		flex: 0 1 233px;
+	    max-width: 233px;
+	    height: 182px;
+	    	.service__img-overlay {
+				&::after {
+					width: 183px;
+					height: 82px;
+				}
+			}
+	}
+	.service_size-2 {
+		flex: 0 1 421px;
+	    max-width: 421px;
+	    height: 355px;
+	    	.service__img-overlay {
+				&::after {
+					width: 371px;
+					height: 305px;
+				}
+			}
+	}
+	.service_size-3 {
+		flex: 0 1 272px;
+	    max-width: 272px;
+	    height: 233px;
+	    margin: 20px;
+	    	.service__img-overlay {
+				&::after {
+					width: 222px;
+					height: 182px;
+				}
+			}
+	}
+	.service_size-4 {
+		flex: 0 1 327px;
+	    max-width: 327px;
+	    height: 180px;
+	    	.service__img-overlay {
+				&::after {
+					width: 277px;
+					height: 80px;
+				}
+			}
+	}
+}
+
+
+@media screen and (max-width: 768px) {
+	.services {
+		margin: 0 -15px 0 -15px;
+
+		.flex-end,
+		.flex-start {
+			justify-content: center;
+			margin: 0 -20px;
+		}
+		
+		.service_text-in {
+			.service__caption {margin: -55px 15px 0 15px;}
+		}
+		.service_text-out {
+			.service__caption {padding: 14px 15px 14px 20px;;}
+		}
+	}
+	.service_size-1 {
+		flex: 0 1 41.5%;
+	    max-width: 50%;
+	    height: 230px;
+	    	.service__img-overlay {
+				&::after {
+					display: none !important;
+				}
+			}
+	}
+	.service_size-2 {
+		flex: 0 1 41.5%;
+	    max-width: 50%;
+	    height: 230px;
+	    	.service__img-overlay {
+				&::after {
+					display: none !important;
+				}
+			}
+	}
+	.service_size-3 {
+		flex: 0 1 41.5%;
+	    max-width: 50%;
+	    height: 230px;
+	    margin: 20px;
+	    	.service__img-overlay {
+				&::after {
+					display: none !important;
+				}
+			}
+	}
+	.service_size-4 {
+		flex: 0 1 41.5%;
+	    max-width: 50%;
+	    height: 230px;
+	    	.service__img-overlay {
+				&::after {
+					display: none !important;
+				}
+			}
+	}
+}
+
+@media screen and (max-width: 568px) {
+	.services {
+		margin: 0 0px 0 0px;
+
+		.flex-end,
+		.flex-start {
+			justify-content: center;
+			margin: 0 -20px;
+		}
+		.service__img {
+			position: relative;			
+			&::before {
+			    position: absolute;
+			    content: '';
+			    left: 0;
+			    bottom: 0;
+			    width: 100%;
+			    height: 60%;
+			    z-index: 0;
+			    background-image: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+			    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(100, rgba(0, 0, 0, 0.6)));
+			    background-image: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+			    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.6)));
+			    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+			}
+		}
+		.service_text-in {
+			.service__caption {
+				margin: -55px 15px 0 15px; 
+				z-index: 2;
+				p,span {color: #fff;}}
+		}
+		.service_text-out {
+			padding-bottom: 0;
+			.service__caption {
+				padding: 0;
+				margin: -55px 15px 0 15px;
+				border-bottom: 0;
+				border-top: 1px solid #fff; 
+				z-index: 2;
+				p,span {color: #fff;}
+			}
+		}
+	}
+	.service_size-1,
+	.service_size-2,
+	.service_size-3,
+	.service_size-4 {
+		flex: 0 1 100%;
+	    max-width: 100%;
+	    height: 230px;
 	}
 }

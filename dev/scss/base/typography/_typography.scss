@@ -183,7 +183,29 @@ ul {
     }
 }
 
+@media screen and (max-width: 992px) {
+    .quotes {
+        &::before {
 
+            top: -18px;
+            left: -28px;
+
+            width: 65px;
+            height: 45px;
+
+            background-image: url(/img/bg/bg-quotes.png);
+            @include bg-contain;
+        }
+    }
+
+    blockquote {
+        margin: 0 25px;
+        & > p {
+            line-height: 1.9;
+            margin: 0 0 0 0;
+        }
+    }
+}
 
 
 

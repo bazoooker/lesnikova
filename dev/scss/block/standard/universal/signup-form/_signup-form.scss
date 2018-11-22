@@ -49,3 +49,39 @@
 		color: black;
 	}
 }
+
+
+@media screen and (max-width: 1100px) {
+	.signup-form {
+		margin: 0 30px 0 -10px;
+	}
+	.signup-form__floating-placeholder {
+		font-size: 13px;
+		padding: 0 0 0 14px;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.signup__policy {
+		br {display: none;}
+	}
+	.signup-form__floating-placeholder {
+		font-size: 13px;
+		padding: 0 0 0 14px;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.signup-form {
+		.col-6 {
+			flex: 1 1 100%;
+			max-width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.signup-form {
+		margin: 0 -8px 0 -8px;
+	}
+}

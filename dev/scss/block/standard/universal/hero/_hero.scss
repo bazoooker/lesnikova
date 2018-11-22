@@ -245,9 +245,11 @@
 		.container {padding: 0;}
 		.hero__info { 
 			padding: 20px 20px 40px 20px; 
-			flex: 1 1 100%; 
-			max-width: 100%; 
+			// flex: 1 1 100%; 
+			// max-width: 100%; 
 			width: 100%;
+			min-width: 100%;
+			flex-grow: 1;
 			br {display: none;}
 		}
 		.hero__slide-number {display: none;}
