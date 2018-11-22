@@ -20,10 +20,21 @@ $(document).ready(function(){
 
 
     // основной слайдер
-    var heroSwiper = new Swiper('.swiper-hero', {
-      speed: 0,
-    });
+    // var heroSwiper = new Swiper('.swiper-hero', {
+    //   speed: 0,
+    // });
 
+    if ($( window ).width() > 768) {
+        var heroSwiper = new Swiper('.swiper-hero', {
+          speed: 0,
+          allowSlidePrev:false,
+          allowSlideNext:false,
+        });
+    } else {
+        var heroSwiper = new Swiper('.swiper-hero', {
+          speed: 400,
+        });
+    }
 
 
     // разобрать слайд до свайпа
@@ -599,18 +610,17 @@ function opeFilterCategory() {
     }
   
 }; 
-    // .filter-category__name
-
-
 
 
 function openMenu() {
     if ( !$('.menu').hasClass('menu_active') ) {
+        $('.fuck-you').addClass('fuck-you_active');
         $('.menu').addClass('menu_active');
-        $('.overlay_menu').fadeIn(200);
+        $('.menu .col-4').addClass('visible');
     } else {
         $('.menu').removeClass('menu_active');
-        $('.overlay_menu').fadeOut(200);
+        $('.menu .col-4').removeClass('visible');
+        $('.fuck-you').removeClass('fuck-you_active');
     }
 }
 

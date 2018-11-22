@@ -28,3 +28,13 @@
 	color: $color_gray-dark;
 	line-height: 1.75;
 }
+
+@media screen and (max-width: 768px) {
+	.feature {
+		border-left: 0;
+		margin: 0 0 -5px 0;
+	}
+	.feature__icon {
+		margin: 0 20px 0 5px;
+	}
+}

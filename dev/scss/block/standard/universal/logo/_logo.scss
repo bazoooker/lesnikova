@@ -40,3 +40,14 @@
 	color: $color_gray-dark;
 	font-size: 14px;
 }
+
+@media screen and (max-width: 992px) {
+	.logo {
+		@include flex-row(nowrap,flex-start,center);
+		flex: 0 0 215px;
+		max-width: 215px;
+	}
+	.logo__name::after  {
+		display: none;
+	}
+}

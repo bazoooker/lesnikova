@@ -398,3 +398,16 @@ input.btn {
     }
 }
 
+@media screen and (max-width: 768px) {
+	// sizes
+
+	.btn_size-l {
+		padding: $gutter*0.7 $gutter*1.7;
+	}
+	.btn_size-m {
+		padding: $gutter*0.5 $gutter*1.5;
+	}
+	.btn_size-s {
+		padding: $gutter*0.35 $gutter*1.35;
+	}
+}
