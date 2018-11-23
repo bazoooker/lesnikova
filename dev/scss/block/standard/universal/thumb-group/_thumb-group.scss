@@ -30,20 +30,112 @@
 }
 
 
-// @media screen and (max-width: 1024px) {
-// 	.thumb-group_left,
-// 	.thumb-group_right {
-// 		flex: 1 1 100%;
-// 		max-width: 100%;
-// 		height: auto;
-// 		flex-wrap: wrap;
-// 	}
+@media screen and (max-width: 1200px) {
 
-// 	.thumb-group__inner_top,
-// 	.thumb-group__inner_bottom {
-// 		@include flex-row(wrap, flex-end, flex-start);
-// 	}
-	// .thumb-group_right {
-	// 	@include flex-row(nowrap, flex-end, flex-start);
-	// }
-// }
+	// большая левая и правая часть друг под друга
+	.thumb-group_right,
+	.thumb-group_left {
+		flex: 1 1 100%;
+		max-width: 100%;
+	}
+
+	.thumb-group_right { //два фото с кнопкой
+		@include flex-row(nowrap, center, flex-start);
+		height: auto;
+		.caption {
+			display: none;
+		}
+		.thumb_size-m {display: none;}
+	}
+
+
+	// ряды левой части - по центру страницы
+	.thumb-group__inner_top {
+		@include flex-row(nowrap, center, flex-end);
+	}
+	.thumb-group__inner_bottom {
+		@include flex-row(nowrap, center, flex-start);
+	}
+}
+
+@media screen and (max-width: 992px) {
+
+	// ряды левой части - по центру страницы
+	.thumb-group__inner_top,
+	.thumb-group__inner_bottom {
+		.thumb_size-s:first-child {display: none;}
+		
+	}
+}
+
+@media screen and (max-width: 768px) {
+
+	// ряды левой части - по центру страницы
+	.thumb-group__inner_top,
+	.thumb-group__inner_bottom {
+		@include flex-row(wrap, center, flex-end);
+		.thumb_size-s:first-child {display: block;}
+
+			.thumb_size-s,
+			.thumb_size-m,
+			.thumb_size-l {
+				flex: 0 0 25%;
+				max-width: 25%;
+
+				height: 135px;
+				width: 25%;
+			}
+
+	}
+
+	.thumb-group__inner_top {
+		.thumb_size-s:first-child {height: 205px;}
+	}
+
+	.thumb-group_right { //два фото с кнопкой
+		@include flex-row(wrap, center, flex-start);
+		.thumb_size-m {display: block; height: 125px;}
+	}
+}
+
+
+@media screen and (max-width: 568px) {
+
+	// ряды левой части - по центру страницы
+	.thumb-group__inner_top,
+	.thumb-group__inner_bottom {
+		@include flex-row(wrap, center, flex-end);
+		.thumb_size-s:first-child {display: none;}
+
+			.thumb_size-s,
+			.thumb_size-m,
+			.thumb_size-l,
+			.thumb_btn {
+				flex: 0 0 100%;
+				max-width: 100%;
+
+				height: 185px;
+				width: 100%;
+			}
+
+	}
+
+	.thumb-group__inner_top {
+		.thumb_size-s:first-child {display: none;}
+	}
+
+	.thumb-group_right { //два фото с кнопкой
+		@include flex-row(wrap, center, flex-start);
+		.thumb_size-m,
+		.thumb_btn {
+			display: block; 
+			height: 185px;
+
+			flex: 0 0 100%;
+			max-width: 100%;
+
+			height: 185px;
+			width: 100%;
+		}
+	}
+}

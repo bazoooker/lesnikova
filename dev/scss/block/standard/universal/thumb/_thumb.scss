@@ -125,48 +125,43 @@
 }
 
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 768px) {
+	.thumb_size-s,
+	.thumb_size-m,
+	.thumb_size-l {
+		flex: 0 0 30%;
+		max-width: 30%;
 
-	// .thumb_size-s {
-	// 	flex: 0 0 135px;
-	// 	max-width: 135px;
+		height: 185px;
+		width: 30%;
+	}
+	.thumb_btn {
+		&:hover{
+				&::after,
+				&::before{
+					width: 23px;
+					height: 23px;
+				}
+		}
+	}
+	// остальная адаптивка тамбов вложена в блок .thumb-group
+}
 
-	// 	height: 135px;
-	// 	width: 135px;
-	// }
-	// .thumb_size-m {
-	// 	flex: 0 0 210px;
-	// 	max-width: 210px;
-
-	// 	height: 210px;
-	// 	width: 210px;
-	// }
-	// .thumb_size-l {
-	// 	flex: 0 0 380px;
-	// 	max-width: 380px;
-
-	// 	height: 380px;
-	// 	width: 380px;
-	// }
-
-
-	// .thumb_size-s {
-	// 	flex: 1 1 50%;
-	// 	max-width: 50%;
-
-	// 	height: 210px;
-	// }
-	// .thumb_size-m {
-	// 	flex: 1 1 50%;
-	// 	max-width: 50%;
-
-	// 	height: 210px;
-	// }
-	// .thumb_size-l {
-	// 	flex: 1 1 50%;
-	// 	max-width: 50%;
-
-	// 	height: 210px;
-	// }
-
+@media screen and (max-width: 768px) {
+	.thumb_btn {
+		div {
+			position: absolute;
+		    top: 50%;
+		    transform: translateY(-50%) translateX(-50%);
+		    left: 50%;
+		}
+		&:hover{
+				&::after,
+				&::before{
+					width: 23px;
+					height: 23px;
+				}
+		}
+	}
+	// остальная адаптивка тамбов вложена в блок .thumb-group
 }

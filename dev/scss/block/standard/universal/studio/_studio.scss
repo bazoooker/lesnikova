@@ -3,8 +3,8 @@
 	@include flex-row(nowrap, space-between, flex-end);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
 	.studio__thumbs {
-		@include flex-col-rev(wrap,center,center);
+		@include flex-row(wrap,center,center);
 	}
 }
