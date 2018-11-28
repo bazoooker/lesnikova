@@ -1,5 +1,12 @@
 // block
 .page-header {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: #fff;
+
 	.container {
 		@include flex-row(nowrap,flex-start,center);
 	}
@@ -8,6 +15,10 @@
 		flex: 0 0 94px;
 		max-width: 94px;
 	}
+}
+
+.page-header_sticky {
+    box-shadow: 0 0 45px rgba(0,0,0,.1);
 }
 
 @media screen and (max-width: 992px) {

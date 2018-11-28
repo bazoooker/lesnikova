@@ -1,7 +1,14 @@
 .news-pagination {
 	text-align: left;
 	padding: 0 35px 30px 35px;
-	.swiper-pagination-bullet {
+
+	@include flex-row(nowrap,center,center);
+
+
+
+
+	// .swiper-pagination-bullet {
+	.news-pagination__item {
 		margin: 0 16px !important;
 		position: relative;
 		background-color: transparent;
@@ -10,6 +17,8 @@
 		width: 6px;
 		height: 6px;
 		opacity: 1;
+		border-radius: 50%;
+		cursor: pointer;
 		transition: 400ms;
 
 		&::before {
@@ -25,8 +34,13 @@
 			border-radius: 50%;
 			transition: 500ms;
 		}
+
+		&:hover {
+			background-color: $color_main;
+		}
 	}
-	.swiper-pagination-bullet-active {
+	// .swiper-pagination-bullet-active {
+	.news-pagination__item_active {
 		background-color: black;
 		box-shadow: none;
 
@@ -36,5 +50,6 @@
 			background-color: transparent;
 			border: 1px solid $color_main;
 		}
+		&:hover {}
 	}
 }

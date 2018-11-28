@@ -1,15 +1,14 @@
 .venzel-1 {
 	position: relative;
-
-	&::after {
+	.deco { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
 		position: absolute;
 		content: '';
 
 		width: 500px;
 		height: 500px;
 
-		left: -150px;
-		bottom: -350px;
+		left: -210px !important;
+		bottom: -150px;
 
 		background-image: url(/img/bg/bg-venzel-3.png);
 		@include bg-contain;
@@ -20,7 +19,7 @@
 .venzel-2 {
 	position: relative;
 
-	&::after {
+	.deco { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
 		position: absolute;
 		content: '';
 
@@ -39,7 +38,7 @@
 .venzel-3 {
 	position: relative;
 
-	&::after {
+	.deco { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
 		position: absolute;
 		content: '';
 
@@ -53,4 +52,36 @@
 		@include bg-contain;
 		z-index: -3;
 	}
+}
+
+@media screen and (max-width: 768px) {
+	.venzel-1::after,
+	.venzel-2::after,
+	.venzel-3::after {
+		width: 300px;
+		height: 300px;
+	}
+
+	.venzel-1::after {
+		left: -120px;
+		bottom: -350px;		
+	}
+	.venzel-2::after {
+		left: -200px;
+		bottom: -350px;		
+	}
+	.venzel-3::after {
+		left: -120px;
+		bottom: -350px;		
+	}
+}
+
+
+.show {
+	width: 0 !important;
+	transition: 600ms;
+}
+
+.show_visible {
+	width: auto !important;
 }

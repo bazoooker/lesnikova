@@ -16,19 +16,29 @@
 		    left: 0%;
 			transform: translateY(-50%);
 		    @include bg-contain;
+		    transition: 400ms;
 		}
 	}
 }
 
 .user-options__tel {
-	flex: 0 0 168px; 
-	margin: 0 29px 0 0; 
-	padding-left: 35px;
+    flex: 0 0 213px;
+    margin: 0 29px 0 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 15px 15px 15px 50px;
+    border: 1px solid transparent;
+    transition: 400ms;
 
-	text-transform: uppercase; 
-	font-size: 14px;
-
-	&::after { background-image: url(/img/icons/i-phone.png) }
+	&::after { 
+		left: 15px !important;
+		background-image: url(/img/icons/i-phone.png) 
+	}
+	&:hover {
+		text-decoration: none;
+		border: 1px solid $color_main;
+		&::after { background-image: url(/img/icons/i-phone_colored.png) }
+	}
 }
 .user-options__vk {
 	margin: 0 29px 0 0;
@@ -37,12 +47,18 @@
 	width: 18px;
 
 	&:after { background-image: url(/img/icons/i-vk.png) }
+	&:hover {
+		&:after { background-image: url(/img/icons/i-vk_colored.png) }
+	}
 }
 .user-options__insta {
 	width: 18px;
 	height: 18px;
 
 	&:after { background-image: url(/img/icons/i-insta.png) }
+	&:hover {
+		&:after { background-image: url(/img/icons/i-insta_colored.png) }
+	}
 }
 
 // .icon_tel {}

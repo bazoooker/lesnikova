@@ -12,3 +12,143 @@
 
 	display: none;
 }
+
+.overlay_loading {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999;
+	// background-color: rgba(255,255,255,.5);
+	background-color: #fff;
+
+	@include flex-row(nowrap,center,center);
+	
+	// временно
+	display: none;
+
+	&::before { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
+		position: absolute;
+		content: '';
+
+		width: 500px;
+		height: 500px;
+
+		left: -210px !important;
+		bottom: -150px;
+
+		background-image: url(/img/bg/bg-venzel-3.png);
+		@include bg-contain;
+		z-index: -3;
+	}
+
+	&::after { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
+		position: absolute;
+		content: '';
+
+		width: 500px;
+		height: 500px;
+
+		right: -210px !important;
+		top: -150px;
+
+		background-image: url(/img/bg/bg-venzel-1.png);
+		@include bg-contain;
+		transform: rotate(180deg);
+		z-index: -3;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+// .preloader-wrap {
+//   width: 100%;
+//   height: 100%;
+//   position: fixed;
+//   top: 0; 
+//   bottom: 0;
+//   background: rgba(0,0,0,1);
+//   z-index : 2; 
+// }
+
+// .percentage {
+//   z-index: 100;
+//   border: 1px solid #ccc;
+//   text-align:center;
+//   color: #fff;
+//   line-height: 30px;
+//   font-size : 15px;
+// }
+
+// .loader,
+// .percentage{
+//   height: 30px;
+//   max-width: 500px; 
+//   border: 2px solid $color_main;
+//   border-radius: 20px;
+//   font-weight: 300;
+//   position: absolute; 
+//   top: 0; 
+//   bottom: 0; 
+//   left: 0; 
+//   right: 0;
+//   margin : auto; 
+// }
+// .loader:after,
+// .percentage:after {
+//   content: "";
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+
+// .trackbar {
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 20px;
+//   color: #fff;
+//   text-align: center;
+//   line-height: 30px;
+//   overflow: hidden;
+//   position: relative;
+//   opacity: 0.99;
+// }
+
+.loadbar {
+  width: 0%;
+  height: 1px;
+  background-color: $color_main ;
+  position: absolute;
+  top: 50.3%;
+  left: 0;
+  animation: flicker 5s infinite;
+  overflow: hidden;
+}
+
+@keyframes animation {
+  10% {
+    opacity: 0.9;
+  }
+  30% {
+    opacity: 0.86;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.75;
+  }
+}

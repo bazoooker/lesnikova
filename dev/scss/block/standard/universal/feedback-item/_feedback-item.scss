@@ -27,6 +27,22 @@
 		background-image: url(/img/bg/bg-quotes-2.png);
 		@include bg-contain;
 		z-index: 2;
+		opacity: 1;
+		transition: 800ms;
+		transition-delay: 1400ms;
+	}
+
+	&.zero {
+		&::before {
+			transition: 800ms;
+			transition-delay: 1400ms;
+		}
+	}
+
+	&.zero_hidden {
+		&::before {
+			opacity: 0;
+		}
 	}
 }
 .feedback-item__text {
@@ -37,6 +53,7 @@
 .feedback-item__text-cropped { 
 	color: #fff; 
 	margin-bottom: 15px;
+	padding: 0 40px 0 0;
 	height: 108px;
 	overflow: hidden;
 	transition: 600ms;
@@ -131,7 +148,10 @@
 	    height: 145px;
 	}
 	.feedback-item__text {
-		margin: 0 0 0 25px;
+		margin: 0 0 0 0;
+	}
+	.feedback-item__text-cropped {
+		padding: 0 15px 0 0;
 	}
 }
 
@@ -140,10 +160,10 @@
 		flex: 0 0 125px;
 	    max-width: 125px;
 	    height: 135px;
-	    margin: 0 auto 30px auto;
+	    margin: 0 auto 30px 0;
 	}
 	.feedback-item__text {
-		margin: 0 0 0 25px;
+		margin: 0 0 0 0;
 	}
 
 	.feedback-item__text-cropped {margin: 0 0 30px 0;}
@@ -153,8 +173,10 @@
 	}
 	.feedback-item__name-date { margin: 0 auto 20px auto; text-align: center; display: inline-block; width: 100%; }
 	.feedback-item__show-btn {
-		margin: 0 auto 30px auto;
+		margin: 0 auto 30px 0;
 		display: block;
+		&::before {display: none;}
 	}
+	.feedback-item__name-date {text-align: left;}
 
 }

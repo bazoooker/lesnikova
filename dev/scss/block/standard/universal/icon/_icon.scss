@@ -25,7 +25,20 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: 60px;
+	transition: 400ms;
+
+	&:hover {border-color: black;}
 }
 
-.icon_vk {background-image: url(/img/icons/i-vk-white.png);}
-.icon_inst {background-image: url(/img/icons/i-insta-white.png);}
+.icon_vk {
+	background-image: url(/img/icons/i-vk-white.png);
+	&:hover {
+		background-image: url(/img/icons/i-vk-black.png);
+	}
+}
+.icon_inst {
+	background-image: url(/img/icons/i-insta-white.png);
+	&:hover {
+		background-image: url(/img/icons/i-insta-black.png);
+	}
+}

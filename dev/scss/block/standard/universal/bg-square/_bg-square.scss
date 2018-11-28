@@ -12,6 +12,8 @@
 
 		background-color: $color_gray-light;
 		z-index: -1;
+		transition: 600ms;
+		transition-delay: 100ms;
 	}
 }
 
@@ -29,6 +31,7 @@
 
 		background-color: $color_gray-light;
 		z-index: -1;
+		transition: 600ms;
 	}
 }
 

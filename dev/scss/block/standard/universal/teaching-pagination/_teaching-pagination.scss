@@ -27,6 +27,10 @@
 			border-radius: 50%;
 			transition: 500ms;
 		}
+
+		&:hover {
+			background-color: #fff;
+		}
 	}
 	.swiper-pagination-bullet-active {
 		background-color: #fff;
@@ -37,6 +41,11 @@
 			height: 22px;
 			background-color: transparent;
 			border: 1px solid #fff;
+		}
+
+		&:hover {
+			background-color: $color_main;
+			box-shadow: 0 0 1px 1px $color_main;
 		}
 	}
 }

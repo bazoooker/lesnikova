@@ -1,0 +1,49 @@
+.trigger{
+
+	.hideme {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background: $color-gray-light;
+			transition: 1200ms ease-out !important;
+			z-index: 9;
+		}
+	}
+	.hideme.hideme_dark {
+		&::before {
+			background: $color-gray;
+		}
+	}
+
+	.hideme_visible {
+		&::before {
+			width: 0% !important;
+			transition-delay: 800ms !important;
+		}
+	}
+
+	.zero {
+		transition: 700ms !important;
+		transition-delay: 650ms !important;
+	}
+
+	.zero_hidden {
+		width: 0 !important;
+		flex: 0 0 0 !important;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	.bg-square_anim {
+		&::before {
+			width: 0;
+		}
+	}
+}

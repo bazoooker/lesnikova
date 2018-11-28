@@ -1,12 +1,18 @@
-//  $(document).ready(function() {
-//   $('select').niceSelect();
-// });
+
+
+
 
 
 $(document).ready(function(){
 
+ 
+    function lookMa() {
+        $('.hero').removeClass('up');
+        $('.swiper-slide').find('.hero__slide-number, .hero__info h1, .hero__info p, .hero__info a, .hero__img').removeClass('up');
+    }
 
 
+$.stellar();
 
 
 // ПРОМО БЛОК 
@@ -19,23 +25,16 @@ $(document).ready(function(){
     // 3. Новый слайд собирается - элементы появляются на экране
 
 
-    // основной слайдер
-    // var heroSwiper = new Swiper('.swiper-hero', {
-    //   speed: 0,
-    // });
-
     if ($( window ).width() > 768) {
         var heroSwiper = new Swiper('.swiper-hero', {
           speed: 0,
-          allowSlidePrev:false,
-          allowSlideNext:false,
+          touchRatio: 0,
         });
     } else {
         var heroSwiper = new Swiper('.swiper-hero', {
           speed: 400,
         });
     }
-
 
     // разобрать слайд до свайпа
     function breakSlide() {
@@ -67,6 +66,7 @@ $(document).ready(function(){
         $(this).parent().find('.arrow_active').removeClass('arrow_active');
         $(this).parent().find('.bullet_active').removeClass('bullet_active');
         $(this).parent().next().find('.arrow').addClass('arrow_active');
+        $(this).parent().next().find('.bullet').addClass('bullet_active');
         breakSlide();
         setTimeout(slideNext, 950);
     });
@@ -75,6 +75,7 @@ $(document).ready(function(){
         $(this).parent().find('.arrow_active').removeClass('arrow_active');
         $(this).parent().find('.bullet_active').removeClass('bullet_active');
         $(this).parent().prev().find('.arrow').addClass('arrow_active')
+        $(this).parent().prev().find('.bullet').addClass('bullet_active');
         breakSlide();
         setTimeout(slidePrev, 950);
     });
@@ -114,53 +115,133 @@ $(document).ready(function(){
 
 
 
-// усСЛУГИ
+
+
+
+
+
+// прелоадер
+
+var width = 100,
+    perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
+    EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
+    time = parseInt((EstimatedTime/1000)%60)*100;
+
+// Loadbar Animation
+$(".loadbar").animate({
+  width: width + "%"
+}, time);
+
+// Loadbar Glow Animation
+$(".glow").animate({
+  width: width + "%"
+}, time);
+
+// Percentage Increment Animation
+var PercentageID = $("#precent"),
+        start = 0,
+        end = 100,
+        durataion = time;
+        animateValue(PercentageID, start, end, durataion);
+        
+function animateValue(id, start, end, duration) {
+  
+    var range = end - start,
+      current = start,
+      increment = end > start? 1 : -1,
+      stepTime = Math.abs(Math.floor(duration / range)),
+      obj = $(id);
+    
+    var timer = setInterval(function() {
+        current += increment;
+        $(obj).text(current + "%");
+      //obj.innerHTML = current;
+        if (current == end) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
+// Fading Out Loadbar on Finised
+setTimeout(function(){
+  $('.overlay_loading').fadeOut(300);
+  setTimeout(lookMa, 500);
+}, time);
+
+
+
+
+
+
+
+
+
+// шторки
+
+
+
+
+
+
+// $(window).scroll(function() {
+//     var top_of_element = $("#scene1").offset().top;
+//     var bottom_of_element = $(".anim-trigger1").offset().top + $(".anim-trigger1").outerHeight();
+//     var bottom_of_screen = $(window).scrollTop() + window.innerHeight;
+//     var top_of_screen = $(window).scrollTop();
+
+//     if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
+//         console.log('look ma');
+//     }
+//     else {
+//         console.log('not today');
+//     }
+// });
+
+
+
+
+
+
+
+
+
+
+
+$(window).scroll(function() {
+
+    $('.trigger').each(function() {
+        if( $(this).visible(true) ) {  
+            $(this).find('.hideme').addClass('hideme_visible');
+            $(this).find('.zero').removeClass('zero_hidden');
+            $(this).find('.bg-square').removeClass('bg-square_anim');
+
+            
+        }        
+    });
+
+    // $('.sbor').each(function() {
+    //     if( $(this).visible(true) ) {  
+    //         $(this).find('.zero').removeClass('zero_hidden');
+    //         $(this).removeClass('sbor');
+    //     }        
+    // });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+// УСЛУГИ
 // ===================================================================================
 
 
-
-
-
-
-
-
-	// if($('#newscontainer').length>0){
-	// var $nextPageToLoad = 1;
-	// var $pagesCnt = parseInt(Math.ceil(totalcount/5));
-	// var $canAddItems = ($pagesCnt > 1);
-	// var $url = '/news/__news_ajax.php?tag='+tag+'&gurl='+gurl+'&gid='+gid+'&pageno=';
-
-	// $(window).bind('scroll', function() {
- //                if (!$canAddItems) { return; }
- //                if ($(document).height() - $(document).scrollTop() - $(window).height() < $(window).height()*5) {
-	// 		$('#ajaxLoader').show();
-	// 		$canAddItems = false;
-	// 		$.post($url + $nextPageToLoad, function(data) {
-	// 			var $data = $( data);
-	// 			$('#newscontainer').append($data);
-	// 			$canAddItems = ($pagesCnt > $nextPageToLoad);
-	// 			$nextPageToLoad++;
-	// 			$('#ajaxLoader').hide();
-	// 		});
-	// 	}
-
-	// });
-
- //                if (!$canAddItems) { return; }
- //                if ($(document).height() - $(document).scrollTop() - $(window).height() < $(window).height()*5) {
-	// 		$('#ajaxLoader').show();
-	// 		$canAddItems = false;
-	// 		$.post($url + $nextPageToLoad, function(data) {
-	// 			var $data = $( data);
-	// 			$('#newscontainer').append($data);
-	// 			$canAddItems = ($pagesCnt > $nextPageToLoad);
-	// 			$nextPageToLoad++;
-	// 			$('#ajaxLoader').hide();
-	// 		});
-	// 	}
-
-
-        // }
 });
 
 
@@ -169,7 +250,7 @@ $(document).ready(function(){
 
     // основной слайдер
     var feedbackSwiper = new Swiper('.swiper-feedback', {
-      speed: 300,
+      speed: 800,
         navigation: {
             nextEl: '.swiper-feedback__btn-next',
             prevEl: '.swiper-feedback__btn-prev',
@@ -201,90 +282,132 @@ $(document).ready(function(){
 
 
 
-// ОБУЧЕНИЕ
+// БЛОГ
 // ===================================================================================
 
-    var newsSwiper = new Swiper('.swiper-container-news', {
-      speed: 400,
-      slidesPerView: 2,
-      spaceBetween: 30,
-      pagination: {
-        clickable: true,
-        el: '.news-pagination',
-      },
-        navigation: {
-            nextEl: '.swiper-news__btn-next',
-            prevEl: '.swiper-news__btn-prev',
-        },
-         breakpoints: {
-            768: {
-              slidesPerView: 1,
-              spaceBetween: 10
+
+    if ($( window ).width() > 768) {
+        var newsSwiper = new Swiper('.swiper-container-news', {
+          slidesPerView: 1,
+          spaceBetween: 30,
+            touchRatio: 0,
+          // pagination: {
+          //   clickable: true,
+          //   el: '.news-pagination',
+          // },
+        });
+    } else {
+        var newsSwiper = new Swiper('.swiper-container-news', {
+          slidesPerView: 2,
+          spaceBetween: 30,
+             breakpoints: {
+                568: {
+                  slidesPerView: 1,
+                  spaceBetween: 10
+                }
             }
+        });
+    }
+
+
+
+
+
+    var newsAnimationFinished = true;
+
+        // сжать слайд до свайпа
+        function shrinkSlide() {
+            $('.news-item').addClass('shrink');
+
+            newsAnimationFinished = true;
+        }
+
+        // отпустить слайд после свайпа
+        function enlargeSlide() {
+            $('.news-item').removeClass('shrink');
+            newsAnimationFinished = true;
+        }
+
+        // свайп влево-справо
+        function slideNewsNext() { 
+            newsSwiper.slideNext(0);
+            setTimeout(enlargeSlide, 400);
+        }
+        function slideNewsPrev() { 
+            newsSwiper.slidePrev(0);
+            setTimeout(enlargeSlide, 400);
+        }
+    
+
+    function newsPrev() {
+        newsAnimationFinished = false;
+        $('.news-item').addClass('shrink');
+
+        $('.news-pagination__item').removeClass('news-pagination__item_active');
+        $('.news-pagination__item').first().addClass('news-pagination__item_active');
+
+        setTimeout(slideNewsPrev, 500);
+    }
+
+    function newsNext() {
+        newsAnimationFinished = false;
+        $('.news-item').addClass('shrink');
+
+        $('.news-pagination__item').removeClass('news-pagination__item_active');
+        $('.news-pagination__item').last().addClass('news-pagination__item_active');
+
+        setTimeout(slideNewsNext, 500);
+    }
+
+
+    // триггеры
+
+    $('.js-news-next').click(function(e) {
+        console.log(e);
+        if (newsAnimationFinished) {
+            newsNext();
+        } else {
+            console.log('animation in progress')
         }
     });
+
+    $('.js-news-prev').click(function() {
+        if (newsAnimationFinished) {
+            newsPrev();
+        } else {
+            console.log('animation in progress')
+        }
+    });
+
+
+    $('.news-pagination__item').click(function() {
+        $('.news-pagination__item').removeClass('news-pagination__item_active');
+        $(this).addClass('news-pagination__item_active');
+    })
+
+
+
 
 
 // =========================================================================================
 // ОБУЧЕНИЕ КОНЕЦ 
 
-
-
-
-
-// $('.feedback-item__show-btn').click(function() {
-//     var feedbackItemHeight = $(this).parent().find('.feedback-item__text-cropped').height();
-//     var feedbackContainerHeight = $(this).parent().parent().parent().parent().parent().parent().parent().height();
-//     var feedbackContainer = $(this).parent().parent().parent().parent().parent().parent().parent();
-//     $(this).parent().find('.feedback-item__text-cropped').toggleClass('full');
-//     console.log(feedbackItemHeight);
-//     console.log(feedbackContainerHeight);
-
-    // feedbackContainer.css('height', feedbackContainerHeight+feedbackItemHeight);
-// })
-
-
-
-
-
-
+$('.js-floating-label').blur();
 
 $('.js-floating-label').on('focus', function() {
     $(this).parent().find('.signup-form__floating-placeholder').addClass('float');
 });
 
 $('.js-floating-label').on('blur', function() {
-    $(this).parent().find('.signup-form__floating-placeholder').removeClass('float');
+    // $(this).parent().find('.signup-form__floating-placeholder').removeClass('float');
+    if($(this).val()!=""){} else {
+        $(this).parent().find('.signup-form__floating-placeholder').removeClass('float');
+    };
 });
 
 
 
-
-
-
-
-// инпуты как любит белокуриха
-$(document).ready(function(){
-	$('.formgroup input,.formgroup textarea').blur();
-
-	$('.formgroup label').click(function(){
-		$(this).parent().find('input, textarea').focus();
-		$(this).addClass("up");
-	});
-
-	$('.formgroup input,.formgroup textarea').blur(function(){
-		if($(this).val()!=""){} else {
-			$(this).parent().find("label").removeClass("up");
-		};
-	});
-	$('.formgroup input,.formgroup textarea').focus(function(){
-		if($(this).val()!=""){} else {
-			$(this).parent().find("label").addClass("up");
-		};
-	});
-});
-
-      
+  
    
  
     /* МОДАЛЬНЫЕ ОКНА */
@@ -575,17 +698,15 @@ function moveProgress() {
 //         $('.page-header').addClass('page-header_sticky');
 //     }
 // })
+
 function showStickyHeader() {
 
 
-    if ( window.pageYOffset > 200 ) {
-       $('.sticky-header').show();
-       $('.sticky-header').addClass('sticky-header_animated');
+    if ( window.pageYOffset > 0 ) {
+       $('.page-header').addClass('page-header_sticky');
     }
     else {
-        console.log('less than 700')
-        $('.sticky-header').hide();
-       $('.sticky-header').removeClass('sticky-header_animated');
+        $('.page-header').removeClass('page-header_sticky');
     }
 };
 
@@ -630,6 +751,8 @@ function openMenu() {
     }
 }
 
+// $('#element').visible();
+
 // triggers
 $(document).ready(function() {   
     $('.js-menu-controls').click(openMenu);
@@ -645,9 +768,8 @@ $(document).ready(function() {
     // $('.filter-category__name').click(opeFilterCategory);
 
 
-    // $(window).scroll(showStickyHeader);  
+    $(window).scroll(showStickyHeader);  
     // $(window).scroll(showToTopButton);    
-    // $(window).scroll(moveProgress);    
 });
 
 // close on "esc"

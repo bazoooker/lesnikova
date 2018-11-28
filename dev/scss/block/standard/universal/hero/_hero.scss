@@ -40,7 +40,7 @@
 
 		background-color: transparent;
 
-		transition: width 950ms;
+		transition: width 2000ms;
 		cursor: pointer;
 			
 		width: 0;
@@ -59,11 +59,12 @@
 			width: 100%;
 
 			background-color: $color_gray;
-			transition: $tr;
+			transition: width $tr;
 
 		}
 
 		&:hover {
+			opacity: 1;
 			&::before{
 				border-color: $color_main !important;
 			}
@@ -76,7 +77,7 @@
 	.arrow_active {
 		display: block;
 		width: 134px;
-		opacity: 1;
+		opacity: .6;
 		margin: 0 8px;
 		overflow: visible;
 
@@ -98,7 +99,7 @@
 
 			border-right: 1px solid $color_gray;
 			border-bottom: 1px solid $color_gray;
-			transition: $tr;
+			transition: width $tr;
 		}
 		&.arrow_active {
 			&::before { border-color: black; }
@@ -118,7 +119,7 @@
 
 			border-left: 1px solid $color_gray;
 			border-bottom: 1px solid $color_gray;
-			transition: $tr;
+			transition: width $tr;
 		}
 		&.arrow_active {
 			&::before { border-color: black; }
@@ -251,6 +252,7 @@
 			min-width: 100%;
 			flex-grow: 1;
 			br {display: none;}
+			a {transition-delay: 0ms !important}
 		}
 		.hero__slide-number {display: none;}
 		h1 {margin: 10px 0 20px 0;}

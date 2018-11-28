@@ -5,16 +5,32 @@
 }
 .about__txt {
 	flex-grow: 1;
+	max-width: 100%;
 }
 .about__img {
+	position: relative;
 	flex: 0 0 442px;
 	max-width: 442px;
 	height: 593px;
+	overflow: hidden;
+
+	transition: 600ms;
+
+	&:hover {
+		.about__img-inner {
+			transform: scale(1.04);
+		}
+		
+	}
 }
 .about__img-inner {
+	position: absolute;
+	right: 0;
+	top: 0;
 	width: 100%;
 	height: 100%;
 	@include bg-cover;
+	transition: 1300ms;
 }
 
 
@@ -41,12 +57,15 @@
 	.about {
 		.container {
 			display: flex;
-			flex-direction: column-reverse;
-			flex-wrap: nowrap;
+			// flex-direction: column-reverse;
+			flex-direction: row;
+			flex-wrap: wrap;
 			justify-content: center;
 			align-items: flex-start;
+			height: 900px;
 		}
 	}
+	.about__txt {margin: 0 0 60px 0;}
 	.about__img {
 		flex: 0 1 100%;
 		width: 100%;

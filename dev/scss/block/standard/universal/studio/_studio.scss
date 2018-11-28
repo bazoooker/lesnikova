@@ -7,4 +7,34 @@
 	.studio__thumbs {
 		@include flex-row(wrap,center,center);
 	}
+	
+	.studio {
+		.caption {
+			margin-left: 30%;
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.studio {
+		.caption {
+			margin-left: 15.5%;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.studio {
+		.caption {
+			margin-left: 20px;
+		}
+	}
+}
+
+@media screen and (max-width: 568px) {
+	.studio {
+		.caption {
+			margin-left: 0;
+		}
+	}
 }

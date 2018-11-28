@@ -41,11 +41,34 @@
 	font-size: 14px;
 }
 
+
+.logo_loading {
+	@include flex-row(wrap,center,center);
+	.logo__name {
+		display: block !important;
+		flex: 1 1 100%;
+		text-align: center;
+		margin: 0 0 10px 0 !important;
+		padding: 0 0 10px 0;
+		&::after {display: none;}
+	}
+	.logo__school {
+		display: block !important;
+		flex: 1 1 100%;
+		text-align: center;
+		margin: 10px 0 0 0 !important;
+		padding: 10px 0 0 0;
+	}
+}
+
 @media screen and (max-width: 992px) {
 	.logo {
 		@include flex-row(nowrap,flex-start,center);
 		flex: 0 0 215px;
 		max-width: 215px;
+		.logo.logo_loading {
+			@include flex-row(wrap,center,center);
+		}
 	}
 	.logo__name::after  {
 		display: none;

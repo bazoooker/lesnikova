@@ -15,12 +15,19 @@
 		width: 18px;
 		
 		@include bg-contain;
+		transition: 400ms;
 	}
 }
 
 .icon-link_tel {
 	&::before {
 		background-image: url(/img/icons/i-phone.png);
+	}
+
+	&:hover {
+		&::before {
+			background-image: url(/img/icons/i-phone_colored.png);
+		}
 	}
 }
 .icon-link_tel-white {
@@ -40,6 +47,11 @@
 .icon-link_mail {
 	&::before {
 		background-image: url(/img/icons/i-mail.png);
+	}
+	&:hover {
+		&::before {
+			background-image: url(/img/icons/i-mail_colored.png);
+		}
 	}
 }
 

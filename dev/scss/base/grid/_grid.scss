@@ -91,6 +91,7 @@
 }
 
 .mb-20 	{margin-bottom: 20px !important;}
+.mb-30 	{margin-bottom: 30px !important;}
 .mb-40 	{margin-bottom: 40px !important;}
 .mb-60 	{margin-bottom: 60px !important;}
 .mb-80 	{margin-bottom: 80px !important;}
@@ -124,6 +125,7 @@
 
     @media screen and (max-width: 768px) {
 		.mb-20 	{margin-bottom: 15px !important;}
+		.mb-30 	{margin-bottom: 25px !important;}
 		.mb-40 	{margin-bottom: 30px !important;}
 		.mb-60 	{margin-bottom: 45px !important;}
 		.mb-80 	{margin-bottom: 60px !important;}
@@ -132,6 +134,7 @@
     }
     @media screen and (max-width: 568px) {
 		.mb-20 	{margin-bottom: 10px !important;}
+		.mb-30 	{margin-bottom: 20px !important;}
 		.mb-40 	{margin-bottom: 25px !important;}
 		.mb-60 	{margin-bottom: 35px !important;}
 		.mb-80 	{margin-bottom: 45px !important;}
@@ -140,6 +143,7 @@
     }
     @media screen and (max-width: 413px) {
 		.mb-20 	{margin-bottom: 10px !important;}
+		.mb-30 	{margin-bottom: 15px !important;}
 		.mb-40 	{margin-bottom: 20px !important;}
 		.mb-60 	{margin-bottom: 30px !important;}
 		.mb-80 	{margin-bottom: 40px !important;}
@@ -153,6 +157,12 @@
 
 
 // hide or show classes
+@media screen and (min-width: 1201px) {
+	.hidden-from-xl {
+		display: none !important;
+		overflow: hidden !important;
+	}
+}
 @media screen and (min-width: 1025px) {
 	.hidden-from-lg {
 		display: none !important;
