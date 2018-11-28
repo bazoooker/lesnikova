@@ -2,3 +2,9 @@
 .news__slider {
 	height:550px;
 }
+
+@media screen and (max-width: 768px) {
+	.news__slider {
+		height: 670px;
+	}
+}

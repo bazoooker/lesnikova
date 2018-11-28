@@ -3,6 +3,7 @@
 	display: inline-block;
 	position: relative;
 	padding: 20px 40px;
+	text-align: center;
 	color: #fff;
 	background-color: transparent;
 	transition: 300ms !important;
@@ -46,7 +47,6 @@
 		text-transform: uppercase;
 		width: 0px;
 		height:0px;
-		// padding: 20px 40px;
 		left:0%;
 		top:0%;
 		transform: translateX(-40%) translateY(-40%);
@@ -551,15 +551,25 @@ input.btn {
 }
 
 @media screen and (max-width: 768px) {
-	// sizes
+	.btn {
+		padding: 15px 30px;
 
-	.btn_size-l {
-		padding: $gutter*0.7 $gutter*1.7;
+		span { 
+			color: transparent; 
+			text-transform: uppercase;
+			font-size: 14px;
+	    	line-height: 1.5 !important;
+	    	font-weight: 400 !important;
+			transition: 300ms linear !important;
+			text-decoration: none;
+			z-index: 5;
+		}
+
+		&::before {
+			padding: 15px 30px;
+	    	line-height: 1.5 !important;
+	    	font-weight: 400 !important;
+		}
 	}
-	.btn_size-m {
-		padding: $gutter*0.5 $gutter*1.5;
-	}
-	.btn_size-s {
-		padding: $gutter*0.35 $gutter*1.35;
-	}
+
 }

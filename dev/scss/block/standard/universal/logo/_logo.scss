@@ -42,8 +42,10 @@
 }
 
 
-.logo_loading {
+.logo.logo_loading {
 	@include flex-row(wrap,center,center);
+	flex: 1 1 100%;
+	max-width: 100%;
 	.logo__name {
 		display: block !important;
 		flex: 1 1 100%;
@@ -74,3 +76,4 @@
 		display: none;
 	}
 }
+

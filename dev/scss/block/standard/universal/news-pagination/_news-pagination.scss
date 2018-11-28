@@ -53,3 +53,7 @@
 		&:hover {}
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.news-pagination {display: none;}
+}

@@ -28,7 +28,7 @@
 	@include flex-row(nowrap,center,center);
 	
 	// временно
-	display: none;
+	// display: none;
 
 	&::before { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
 		position: absolute;
@@ -151,4 +151,46 @@
   80% {
     opacity: 0.75;
   }
+}
+
+
+
+@media screen and (max-width: 568px) {
+	.overlay_loading {
+
+		&::before { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
+			width: 250px;
+			height: 250px;
+			left: -110px !important;
+			bottom: -140px;
+		}
+
+		&::after { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
+			width: 250px;
+			height: 250px;
+
+			right: -110px !important;
+			top: -90px;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.overlay_loading {
+
+		&::before { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
+			width: 350px;
+			height: 350px;
+			left: -130px !important;
+			bottom: -170px;
+		}
+
+		&::after { //вынесен из псевдоэлемента в отдельный блок. чтобы применить параллакс
+			width: 350px;
+			height: 350px;
+
+			right: -130px !important;
+			top: -120px;
+		}
+	}
 }
