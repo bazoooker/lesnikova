@@ -429,28 +429,40 @@ $(document).ready(function(){
 // ==============
 
     /* МОДАЛЬНЫЕ ОКНА */
-    $(document).ready(function(){        
-        $(".callback-link").on('click', function(){
-            var btn = $(this);                        
-            $(".overlay").fadeIn(100, function(){
-                $($(btn).data('window')).show();                        
-            }); 
-           $('#callback-window').show();
-            return false;
-        });
-        
-        $("#overlay, .modal .modal-close").on('click', function(){
-            $(".overlay, .modal").fadeOut();
-        $('.modal').find('input, textarea').val('');
-            return false;
-        });    
-        $('.modal').each(function(){
-            var f=$(this).find('.modal-content');
-            var t=$(this).find('.modal-content-copy');
-            t.html(f.html());
-            t.hide();
+    $(document).ready(function(){   
 
+
+        $(".js-open-modal").on('click', function(){
+            console.log('click');
+            var modalName = $(this).data('target');                        
+            var modal = $('#' + modalName);
+            if( !$(modal).hasClass('modal_active') ) {
+                $(modal).addClass('modal_active');                          
+            } else {
+                $(modal).removeClass('modal_active');                          
+            }
         });
+
+        $(".js-close-modal").on('click', function(){
+            $('.modal').removeClass('modal_active');
+        });
+
+
+
+        // $("#overlay, .modal .modal-close").on('click', function(){
+        //     $(".overlay, .modal").fadeOut();
+        // $('.modal').find('input, textarea').val('');
+        //     return false;
+        // });    
+
+
+        // $('.modal').each(function(){
+        //     var f=$(this).find('.modal-content');
+        //     var t=$(this).find('.modal-content-copy');
+        //     t.html(f.html());
+        //     t.hide();
+
+        // });
     });
     /* МОДАЛЬНЫЕ ОКНА END */
 
@@ -503,21 +515,25 @@ $(document).ready(function(){
 
 
 
-    // function showToTopButton() {
-    //     if ( window.pageYOffset > 500 ) {
-    //        $('.to-top').addClass('to-top_visible')
-    //     }
-    //     else {
-    //         $('.to-top').removeClass('to-top_visible')
-    //     }
-    // }; 
+    function showToTopButton() {
+        if ( window.pageYOffset > 500 ) {
+           $('.to-top').addClass('to-top_visible')
+        }
+        else {
+            $('.to-top').removeClass('to-top_visible')
+        }
+    }; 
 
-    // function scrollToTop() {
-    //   $("html, body").animate({ scrollTop: 0 }, "slow");
-    //   return false;
-    // }; 
+    function scrollToTop() {
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      return false;
+    }; 
+    $('.js-scroll-to-top').click(scrollToTop);
+    $(window).scroll(showToTopButton);    
 
 
+
+    $('.signup-form__masked-tel').mask('+7(999) 999-99-99');
 
 
 });
@@ -533,11 +549,9 @@ $(document).ready(function(){
 // triggers
 $(document).ready(function() {   
     // $('.js-menu-controls').click(openMenu);
-    // $('.js-scroll-to-top').click(scrollToTop);
     // $('.overlay_modal').click(openModal);
 
     // $(window).scroll(showStickyHeader);  
-    // $(window).scroll(showToTopButton);    
 });
 
 

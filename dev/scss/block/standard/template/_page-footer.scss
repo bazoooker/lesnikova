@@ -1,8 +1,10 @@
 .page-footer {}
 
 .page-footer__links {
+	list-style: none;
 	li {
 		list-style: none; margin: 0; padding: 0;
+		&::before {display: none;}
 		a {
 			display: block;
 			padding: 11px 5px 11px 0;

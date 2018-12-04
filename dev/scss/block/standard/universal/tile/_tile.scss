@@ -8,7 +8,7 @@
 		.tile__img-holder {
 			transform: scale(1.2);
 
-			&::before {opacity: .5;}
+			// &::before {opacity: .5;}
 		}		
 	}
 }
@@ -24,18 +24,18 @@
 	@include bg-cover;
 	transition: 900ms;
 
-	&::before {
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: $color_main;
-		transition: 900ms;
+	// &::before {
+	// 	position: absolute;
+	// 	content: '';
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	top: 0;
+	// 	left: 0;
+	// 	background-color: $color_main;
+	// 	transition: 900ms;
 
-		opacity: 0;
-	}
+	// 	opacity: 0;
+	// }
 }
 
 

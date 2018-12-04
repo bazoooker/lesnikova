@@ -164,6 +164,24 @@
 }
 
 
+.inner-page {
+	.service {
+		display: block; 
+		text-decoration: none;
+		&:hover { text-decoration: none; }
+	}
+	.service_size-1,
+	.service_size-2,
+	.service_size-3,
+	.service_size-4 {
+		flex: 1 1 100%;
+		max-width: 100%;
+		width: 100%;
+		margin: 0 0 20px 0;
+	}
+}
+
+
 @media screen and (max-width: 1200px) {
 	.service_size-1 {
 		flex: 0 1 298px;

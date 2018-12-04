@@ -7,7 +7,12 @@
     	margin-left: -20px;
 	}
 
-	li {margin: 0;}
+	li {
+		margin: 0;
+		&::before {
+			display: none;	
+			}
+		}
 
 	a {
 		display: block;

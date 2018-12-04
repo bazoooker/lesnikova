@@ -47,10 +47,33 @@
 		flex: 0 0 120px; 
 		max-width: 120px; 
 		@include bg-contain; 
+		opacity: .65;
+		transition: 500ms;
+
+		&.swiper-news__btn_disabled:hover {
+			opacity: .65;
+			cursor: default;
+			transform: translateX(0);
+		}
 	}
 
-	.swiper-news__btn-next { background-image: url(/img/icons/arrow-r_long.png); }
-	.swiper-news__btn-prev { background-image: url(/img/icons/arrow-l_long.png); }
+	.swiper-news__btn-next { 
+		background-image: url(/img/icons/arrow-r_long.png); 
+		margin-right: 20px;
+		&:hover {
+			transform: translateX(6px);
+    		opacity: 1;
+		}
+	}
+	.swiper-news__btn-prev { 
+		margin-left: 20px;
+		background-image: url(/img/icons/arrow-l_long.png); 
+		&:hover {
+			transform: translateX(-6px);
+    		opacity: 1;
+		}
+	}
+	.swiper-news__btn_disabled { opacity: .5; cursor: default; }
 }
 
 

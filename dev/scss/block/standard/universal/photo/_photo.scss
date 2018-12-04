@@ -1,11 +1,9 @@
 .photo {
+	display: inline-block;
 	width: 100%;
-	height: 30rem;
+	height: 300px;
 	overflow: hidden;
 
-	background-position: 	50% 50%; 
-	background-size: 		cover;
-	background-repeat: 		no-repeat;
 
 	&:hover {
 		.photo__inner {
@@ -31,7 +29,7 @@
 
 .photo_header-small {
 	background-size: cover;
-	height: 30rem;
+	height: 300px;
 
 	background-position: 	50% 50%; 
 	background-size: 		cover;
@@ -71,8 +69,9 @@
 	height: 100%;
 
 	cursor: pointer;
+	@include bg-cover;
 
-	transition: 400ms;
+	transition: 500ms;
 }
 
 .photo__description {

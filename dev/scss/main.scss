@@ -91,6 +91,13 @@
 @import "block/standard/universal/swiper-news/swiper-news";
 @import "block/standard/universal/news-item/news-item";
 
+// новости внутряк
+@import "block/standard/universal/news-list/news-list";
+@import "block/standard/universal/news-thumb/news-thumb";
+
+@import "block/standard/universal/tag/tag";
+@import "block/standard/universal/news-detail/news-detail";
+
 // запись на прием
 @import "block/standard/universal/signup/signup";
 @import "block/standard/universal/signup-form/signup-form";
@@ -107,27 +114,29 @@
 
 
 // E-SHOP BLOCKS
-@import "block/standard/e-shop/basket/basket";
 
-@import "block/standard/e-shop/brand-holder/brand-holder";
-@import "block/standard/e-shop/brand-select/brand-select";
-@import "block/standard/e-shop/brands-slider/brands-slider";
-@import "block/standard/e-shop/catalog-link/catalog-link";
-@import "block/standard/e-shop/catalog-list/catalog-list";
-@import "block/standard/e-shop/catalog-nav/catalog-nav";
-@import "block/standard/e-shop/catalog-slider/catalog-slider";
-@import "block/standard/e-shop/category/category";
-@import "block/standard/e-shop/filter-category/filter-category";
-@import "block/standard/e-shop/filters/filters";
-@import "block/standard/e-shop/product/product";
-@import "block/standard/e-shop/products/products";
-@import "block/standard/e-shop/product-detail/product-detail";
-@import "block/standard/e-shop/product-detail-heading/product-detail-heading";
-@import "block/standard/e-shop/product-list/product-list";
-@import "block/standard/e-shop/product-list-controls/product-list-controls";
-@import "block/standard/e-shop/product-logo/product-logo";
-@import "block/standard/e-shop/quantity-counter/quantity-counter";
-@import "block/standard/e-shop/sort/sort";
+@import "block/custom/pagination/pagination";
+// @import "block/standard/e-shop/basket/basket";
+
+// @import "block/standard/e-shop/brand-holder/brand-holder";
+// @import "block/standard/e-shop/brand-select/brand-select";
+// @import "block/standard/e-shop/brands-slider/brands-slider";
+// @import "block/standard/e-shop/catalog-link/catalog-link";
+// @import "block/standard/e-shop/catalog-list/catalog-list";
+// @import "block/standard/e-shop/catalog-nav/catalog-nav";
+// @import "block/standard/e-shop/catalog-slider/catalog-slider";
+// @import "block/standard/e-shop/category/category";
+// @import "block/standard/e-shop/filter-category/filter-category";
+// @import "block/standard/e-shop/filters/filters";
+// @import "block/standard/e-shop/product/product";
+// @import "block/standard/e-shop/products/products";
+// @import "block/standard/e-shop/product-detail/product-detail";
+// @import "block/standard/e-shop/product-detail-heading/product-detail-heading";
+// @import "block/standard/e-shop/product-list/product-list";
+// @import "block/standard/e-shop/product-list-controls/product-list-controls";
+// @import "block/standard/e-shop/product-logo/product-logo";
+// @import "block/standard/e-shop/quantity-counter/quantity-counter";
+// @import "block/standard/e-shop/sort/sort";
 
 // MISC
 @import "block/standard/misc/grtyoutube-popup";

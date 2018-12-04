@@ -12,7 +12,7 @@ html {
     font-weight: 400;
     letter-spacing: .2px;
     font-size: 14px;
-    color: $color_gray;
+    color: #666666;
 }
 body {
     @include font-kit(16px, 15px, 15px, 14px, 13px);
@@ -28,31 +28,30 @@ h1,h2,h3,h4,h5 {
     color: #000;
 }
 
-h1,h2 {
-    @include font-kit(44px, 40px, 37px, 33px, 29px);
+h1 {
+    @include font-kit(44px, 41px, 37px, 33px, 29px);
     @include line-height-kit(1.15, 1.20, 1.25, 1.3, 1.35);
-    margin: $gutter 0 0 0;
-    font-weight: 300;
+    margin: $gutter*2 0 $gutter*2 0;
 }
-// h2 {
-//     @include font-kit(34px, 31px, 29px, 27px, 25px);
-//     @include line-height-kit(1.15, 1.20, 1.3, 1.4, 1.55);
-//     margin: $gutter 0 $gutter 0;
-// }
+h2 {
+    @include font-kit(34px, 31px, 28px, 25px, 23px);
+    @include line-height-kit(1.15, 1.20, 1.25, 1.3, 1.35);
+    margin: $gutter*1.9 0 $gutter*1.9 0;
+}
 h3 {
-    @include font-kit(28px, 25px, 23px, 21px, 20px);
+    @include font-kit(28px, 26px, 23px, 21px, 20px);
     @include line-height-kit(1.15, 1.20, 1.3, 1.4, 1.55);
-    margin: $gutter 0 $gutter 0;
+    margin: $gutter*1.75 0 $gutter*1.75 0;
 }
 h4 {
-    @include font-kit(24px, 22px, 21px, 20px, 19px);
+    @include font-kit(24px, 21px, 20px, 19px, 18px);
     @include line-height-kit(1.15, 1.20, 1.3, 1.4, 1.55);
-    margin: $gutter 0 $gutter 0;
+    margin: $gutter*1.6 0 $gutter*1.6 0;
 }
 h5 {
     @include font-kit(18px, 18px, 17px, 17px, 16px);
     @include line-height-kit(1.15, 1.20, 1.3, 1.4, 1.55);
-    margin: $gutter 0 $gutter 0;
+    margin: $gutter*1.4 0 $gutter*1.4 0;
 }
 
 
@@ -141,47 +140,140 @@ a {
 
 table {
     width: 100%;
+
+    thead {
+        tr {
+            td {
+                color: $color_main;
+                background-color: #f6f6f6;
+                @include font-kit(18px, 18px, 17px, 16px, 15px);
+                @include line-height-kit(1.15, 1.20, 1.3, 1.4, 1.55); 
+                border-bottom: 0;       
+            }
+        }
+    }
+
+    tr {
+        @include font-kit(14px, 14px, 14px, 13px, 13px);
+        @include line-height-kit(1.15, 1.20, 1.3, 1.4, 1.55);
+        position: relative;
+        overflow: hidden;
+        td {
+            padding: 22px;
+            border-bottom: 1px solid #efefef;
+        }
+    }
 }
 
-table tr {
-    @include font-kit(14px, 14px, 14px, 13px, 13px);
-    @include line-height-kit(1.15, 1.20, 1.3, 1.4, 1.55);
-    position: relative;
-    overflow: hidden;
-    td {
-        padding: 1px 0;
-        border-bottom: 1px solid #e9e9e9;
-    }
-    &:nth-child(odd) {
-        td {
-            background-color: #efefef;
-        }
-    }
-    &:nth-child(even) {
-        td {
-            background-color: transparent;
-        }
-    }
-    tr:hover {
-        td {
-            background-color: $color_gray-light;
-        }
-    }
-}
 
 
 
 // LISTS
 
 ul {
-    padding-left: 1.3rem;
-    margin-left: 0;
+    padding-left: 0;
+    margin-left: 20px;
     li {
         position: relative;
-        margin-bottom: 1rem;
-        padding-left: 1rem;
+        margin-bottom: 10px;
+        padding: 10px 0 0 24px;
+        list-style: none;
+        &::before {
+            position: absolute;
+            content: '';
+
+            top: 16px;
+            left: 0px;
+
+            width: 6px;
+            height: 6px;
+            background-color: $color_main;
+
+        }
     }
 }
+
+
+ol{
+    padding-left: 0;
+    margin-left: 0px;
+    counter-reset: myCounter;
+    li{
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0px 0 0 3px;
+        list-style: none;
+
+        &:before {
+          counter-increment: myCounter;
+          content:counter(myCounter);
+          color: $color_main;
+          background: #fff;
+          display: inline-block;
+          text-align: center;
+          margin: 5px 10px;
+          line-height: 20px;
+          font-size: 16px;
+          width: 20px;
+          height: 20px;
+          font-weight: 600;
+        }
+    }
+}
+
+
+blockquote.quote {
+    margin: 0 0 0 0;
+    padding: $gutter*2;
+    background-color: transparent;
+    border: 1px solid $color_main;
+
+    @include flex-row(nowrap, flex-start,flex-start);
+
+    .blockquote__person {
+        position: relative;
+        flex: 0 0 110px;
+        width: 110px;
+        height: 110px;
+        margin: 0 35px 20px 0;
+        float: left;
+        height: 100%;
+
+        &::before {
+            position: absolute;
+            content: '';
+            right: -30px;
+            top: -30px;
+            width: 60px;
+            height: 60px;
+            z-index: 2;
+            background-image: url(/img/bg/bg-quotes.png);
+            @include bg-contain;
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+    }
+
+    .blockquote__text {
+        flex: 1 1 100%;
+
+        cite {
+            font-size: 13px;
+            font-style: italic;
+            b {
+                font-weight: normal;
+                font-size: 14px;
+                font-style: normal;
+            }
+        }
+    }
+
+}
+
 
 @media screen and (max-width: 992px) {
     .quotes {
@@ -207,6 +299,33 @@ ul {
     }
 }
 
+@media screen and (max-width: 768px) {
+    ul {
+        li {
+            &::before {
+                top: 17px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 568px) {
+    blockquote {
+        margin: 0 0;
+        padding: $gutter*2;
+        background-color: transparent;
+        border: 1px solid $color_main;
+
+        @include flex-row(wrap, flex-start,flex-start);
+    }
+
+    .blockquote__person,
+    .blockquote__text {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+}
 
 
 

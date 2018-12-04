@@ -1,0 +1,30 @@
+.news-detail {
+
+	.photo {
+		float: left;
+		width: 45%;
+		margin: 0 30px 30px 0;
+		cursor: default;
+
+		&:hover {
+			.photo__inner {transform: none;}
+		}
+	}
+}
+.news-detail__tag {
+    display: inline-block;
+    padding: 4px 14px;
+    margin: 0 8px 0 0;
+    background-color: $color_gray-light;
+    color: #b3b3b3;
+    cursor: pointer;
+    transition: 500ms;
+
+    &:hover {
+    	color: $color_main;
+    }
+}
+.news-detail__date {
+	display: inline-block;
+	color: #b3b3b3;
+}

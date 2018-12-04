@@ -33,7 +33,7 @@
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="/js/wow.min.js"></script>
+
         
     </head>
 
@@ -57,7 +57,7 @@
                 </a>
 
                 <div class="user-options">
-                    <a class="user-options__tel">
+                    <a class="user-options__tel js-open-modal" data-target="callback">
                         заказать звонок
                     </a>    
                     <a href="#" class="user-options__vk"></a>
@@ -68,8 +68,57 @@
         </header>
         <!-- HEADER END --> 
 
-        <!-- PAGE CONTENT BEGIN -->            
+
+
+
+
+
+
         <main class="content" role="main">
+
+    <!--         <div class="container">
+                <h1>Анастасия Лесникова h1</h1>
+                <h2>Анастасия Лесникова h2</h2>
+                <h3>Анастасия Лесникова h3</h3>
+                <h4>Анастасия Лесникова h4</h4>
+                <h5>Анастасия Лесникова h5</h5>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#">ссылка в тексте</a> Nisi sequi in libero optio officia earum aliquam, sed deleniti soluta quasi. Voluptas tempore eaque odio omnis magnam aperiam fuga rem, expedita!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat rem molestias natus accusantium beatae sunt optio doloremque, porro ut enim quia, neque. Itaque quam totam sint sed hic. Dolorum, saepe! <a href="#">ссылка в тексте</a></p>
+
+                <h2>Списки</h2>
+                <ul>
+                    <li>Микрроблейдинг</li>
+                    <li>Коррекция бровей</li>
+                    <li>Пудровые брови</li>
+                    <li>Обучение</li>
+                    <li>Сертификаты</li>
+                </ul>
+
+                <p><br/></p>
+                <ol>
+                    <li>Микрроблейдинг</li>
+                    <li>Коррекция бровей</li>
+                    <li>Пудровые брови</li>
+                    <li>Обучение</li>
+                    <li>Сертификаты</li>
+                </ol> 
+
+                <h2>Цитата</h2>
+
+                <blockquote class="quote mb-40">
+                    <div class="blockquote__person">
+                        <img src="/img/bg/bg-stud-life-7.jpg" alt="">
+                    </div>
+                    <div class="blockquote__text">
+                        <p class="text-big font-main mb-20">Важна каждая деталь.</p>
+
+                        <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem fuga placeat ea perspiciatis deleniti quasi veritatis sint tempora voluptate quisquam doloribus blanditiis totam iusto officiis consequatur, modi laborum debitis ut.</p>
+
+                        <cite><b>Анастасия Лесникова,</b><br/>основатель компании</cite>
+                    </div>
+                </blockquote>
+            </div> -->
 
 
 
@@ -627,7 +676,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="signup-form__label">
-                                        <input type="text" class="js-floating-label">
+                                        <input type="text" class="js-floating-label signup-form__masked-tel">
                                         <span class="signup-form__floating-placeholder">Телефон</span>
                                     </div>
                                 </div>
@@ -642,7 +691,7 @@
                         </form>
 
                         <p class="signup__policy mb-30 wow fadeInLeft" data-wow-delay="1300ms" data-wow-duration="700ms">
-                            Нажимая кнопку «Записаться», вы соглашаетесь с условиями <a href="#">политики <br/>конфиденциальности</a>
+                            Нажимая кнопку «Записаться», вы соглашаетесь с условиями <a href="policy.pdf" target="_blank">политики <br/>конфиденциальности</a>
                         </p>
 
                                                             
@@ -654,6 +703,8 @@
                     <div class="signup__img zero zero_hidden">
                         <div class="signup__img-inner" style="background-image: url(/img/bg/bg-signup.jpg);"></div>
                     </div>
+
+
 
                 </div>
             </div> <!-- форма конец -->
@@ -746,7 +797,7 @@
                                  <span>&#9400; 2018 Анастасия Лесникова</span>
                              </div>
                              <div class="col-6">
-                                 <a href="#" class="">Политика в отношении обработки персональных данных</a class="">
+                                 <a href="policy.pdf" target="_blank">Политика в отношении обработки персональных данных</a class="">
                              </div>
                              <div class="col-3">
                                  <span>Разработка сайта - <a class='made-by uppercase'>e1media</a>
@@ -890,14 +941,73 @@
                 </div>
             </div> <!-- меню конец -->
   
-<!-- 
-            <a href="/img/bg/bg-stud-life-4.jpg" class="thumb thumb_size-s" data-lightbox="studio-life">
-                <div class="thumb__img-holder" style="background-image: url(/img/bg/bg-stud-life-4.jpg);"></div>
-            </a> -->
 
 
-        <!-- MODAL WINDOW BEGIN -->
-        <div class="modal" id="callback-window" style="display: none;">
+
+
+        <!-- модалка позвоните мне     -->
+        <div class="modal" id="callback">
+            <div class="container">
+                <div class="signup__form">
+
+                    <div class="caption mb-60 wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="700ms">
+                        <h2 class="color-black">Заказать обратный звонок</h2>
+                        <p class="caption__subheading">Оставьте заявку или напишите лично мне в <a href="#">WhatsApp</a></p>
+                    </div>
+
+                    <form class="signup-form wow fadeInLeft" action=''  data-wow-delay="1100ms" data-wow-duration="700ms">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="signup-form__label">
+                                    <input type="text" class="js-floating-label">
+                                    <span class="signup-form__floating-placeholder">Представьтесь, пожалуйста*</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="signup-form__label">
+                                    <input type="text" class="js-floating-label signup-form__masked-tel">
+                                    <span class="signup-form__floating-placeholder">Телефон*</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="signup-form__label">
+                                    <input type="text" class="js-floating-label">
+                                    <span class="signup-form__floating-placeholder">Комментарий</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <p class="signup__policy mb-30 wow fadeInLeft" data-wow-delay="1300ms" data-wow-duration="700ms">
+                        Нажимая кнопку «Записаться», вы соглашаетесь с условиями <a href="policy.pdf" target="_blank">политики <br/>конфиденциальности</a>
+                    </p>
+
+                                                        
+                    <a href="#" class="btn btn_size-l wow fadeInLeft" data-text="заказать звонок" style="width: 270px;" data-wow-delay="1300ms" data-wow-duration="700ms">
+                        <span>Заказать звонок</span>
+                    </a>
+                </div>
+                <span class="modal__close js-close-modal"></span>
+                        
+                <!-- сообщения об ошибке / успешной отправке -->
+                <div class="modal__message_error">
+                    Заполните, пожалуйста, обязательные поля.
+                </div>
+
+                <div class="modal__message_success">
+                    <b>Запрос отправлен.</b> Мы свяжемся с вами в течение дня.
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+<!--         <div class="modal" id="callback-window" style="display: none;">
             <a class="modal-close" href="#">
             </a>
             <div class="spinner">
@@ -928,8 +1038,7 @@
             </div>
             <div class="modal-content-copy">
             </div>
-        </div>
-        <!-- MODAL WINDOW END -->
+        </div> -->
 
 
 
@@ -943,6 +1052,8 @@
                 </span>
                 <span class="logo__school">microblading school-studio</span>
             </div>
+
+
             
             <!-- возможно, это понадобится -->
 
@@ -960,7 +1071,7 @@
         
     
         <div class="to-top js-scroll-to-top"> <!-- нопка "наверх" -->
-            <span class="to-top__text">Наверх</span>
+            <!-- <span class="to-top__text">Наверх</span> -->
         </div>
         
 
@@ -968,6 +1079,14 @@
 
 
 
+            <!-- сообщения об ошибке / успешной отправке -->
+            <div class="form-message-error">
+                Заполните, пожалуйста, обязательные поля.
+            </div>
+
+            <div class="form-message-success">
+                <b>Запрос отправлен.</b> Мы свяжемся с вами в течение дня.
+            </div>
 
 
 
@@ -976,10 +1095,12 @@
         <script src="/js/swiper.min.js"></script>
         <!-- <script src="/js/jquery.nice-select.min.js"></script> -->
         <!-- <script src="/js/jquery.scrollme.js"></script> -->
+        <script src="/js/wow.min.js"></script>
         <script src="/js/lightbox.min.js"></script>
         <script src="/js/jquery.stellar.min.js"></script> 
         <script src="/js/tilt.jquery.min.js"></script> 
         <script src="/js/jquery.visible.min.js"></script> 
+        <script src="/js/jquery.maskedinput.min.js"></script> 
         <script src="/js/script.js"></script>
 
     </body>
