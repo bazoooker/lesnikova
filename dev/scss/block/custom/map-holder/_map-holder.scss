@@ -1,0 +1,32 @@
+.map-holder {
+	position: relative;
+	height: 400px;
+
+	&::before {
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		background-image: url(/img/bg/map-bg.jpg); 
+		background-size: cover; 
+		background-position: center center;
+		height: 400px; 
+		width: 100%;
+		opacity: .6;
+		z-index: -2;
+	}
+	&::after {
+		position: absolute;
+		content: '';
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		background-image: url(/img/bg/map-loader.gif); 
+		background-size: 34px; 
+		background-position: top left;
+		height: 34px; 
+		width: 34px;
+		opacity: .6;
+		z-index: -1;
+	}
+}

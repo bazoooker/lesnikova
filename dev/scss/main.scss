@@ -98,6 +98,9 @@
 @import "block/standard/universal/tag/tag";
 @import "block/standard/universal/news-detail/news-detail";
 
+// отзывы
+@import "block/standard/universal/review-thumb/review-thumb";
+
 // запись на прием
 @import "block/standard/universal/signup/signup";
 @import "block/standard/universal/signup-form/signup-form";
@@ -116,6 +119,10 @@
 // E-SHOP BLOCKS
 
 @import "block/custom/pagination/pagination";
+
+@import "block/custom/map-holder/map-holder";
+
+@import "block/custom/spec-thumb/spec-thumb";
 // @import "block/standard/e-shop/basket/basket";
 
 // @import "block/standard/e-shop/brand-holder/brand-holder";

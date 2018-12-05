@@ -35,10 +35,30 @@
 	&:hover {
 		background-image: url(/img/icons/i-vk-black.png);
 	}
+
+	&.icon_black {
+		background-image: url(/img/icons/i-vk-black.png);
+		border-color: black;
+		opacity: .3;
+		width: 40px;
+		height: 40px;
+		background-size: 40px;
+		&:hover {opacity: 1;}
+	}
 }
 .icon_inst {
 	background-image: url(/img/icons/i-insta-white.png);
 	&:hover {
 		background-image: url(/img/icons/i-insta-black.png);
+	}
+
+	&.icon_black {
+		background-image: url(/img/icons/i-insta-black.png);
+		border-color: black;
+		opacity: .3;
+		width: 40px;
+		height: 40px;
+		background-size: 40px;
+		&:hover {opacity: 1;}
 	}
 }

@@ -7,6 +7,7 @@
 	// =================================
 
 	&:hover {
+		text-decoration: none;
 		.service__img-overlay {
 			opacity: .95;
 			z-index: 3;
@@ -20,6 +21,7 @@
 	&.service_text-in:hover {
 		.service__caption {
 			opacity: 0;
+			text-decoration: none;
 		}
 	}	
 
@@ -27,6 +29,7 @@
 		.service__caption {
 			p,span {color: $color_main;}
 			border-color: $color_main;
+			text-decoration: none;
 		}
 	}	
 }
